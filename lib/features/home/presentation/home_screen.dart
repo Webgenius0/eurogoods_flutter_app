@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eurogoods/common_widgets/custom_productcard.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/features/home/widgets/categories_button.dart';
@@ -203,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // -------------------Categories --------------------------
               Wrap(
                 spacing: 7.0, // Horizontal spacing
-                runSpacing: 5.0, // Vertical spacing
+                runSpacing: 1.0, // Vertical spacing
                 children: [
                   categoriesButton('All', selected: true),
                   categoriesButton('Special'),
@@ -240,17 +242,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               UIHelper.verticalSpace(10.h),
+              //-----------------Products--------------
               SizedBox(
-                height: 500.h,
+                height: 550.h,
                 child: GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 2 / 3.5,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 0.72,
                   ),
-                  itemCount: beverageList.length,
+                  itemCount: min(beverageList.length, 4),
                   itemBuilder: (context, idx) {
                     final product = beverageList[idx];
                     return ProductCard(
