@@ -5,6 +5,7 @@ import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
+import 'package:eurogoods/helpers/share_bottom_sheet_widget.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -97,10 +98,22 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                                                 fontSize: 14.sp,
                                                 color: AppColors.c17242B),
                                       ),
-                                      SvgPicture.asset(
-                                        Assets.icons.delete,
-                                        height: 14.h,
-                                        width: 14.w,
+                                      GestureDetector(
+                                        onTap: () => showModalBottomSheet(
+                                          context: context,
+                                          shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(28.0),
+                                            ),
+                                          ),
+                                          builder: (context) =>
+                                              ShareBottomSheet(),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          Assets.icons.delete,
+                                          height: 14.h,
+                                          width: 14.w,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -136,7 +149,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        '${120}',
+                                        '\$120',
                                         style: TextFontStyle
                                             .textStyle24c848585PoppinsW400
                                             .copyWith(
