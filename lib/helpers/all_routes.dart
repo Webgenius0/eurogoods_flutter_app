@@ -2,8 +2,6 @@
 
 import 'dart:io';
 
-import 'package:eurogoods/features/auth/presentation/forgot_password/presentation/forgot_password.dart';
-import 'package:eurogoods/features/auth/presentation/sign_up/sign_up_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
 import 'package:eurogoods/features/onboarding/presentation/auth/forgot_password/forgot_password.dart';

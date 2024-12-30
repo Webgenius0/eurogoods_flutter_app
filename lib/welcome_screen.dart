@@ -110,44 +110,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    UIHelper.verticalSpace(50.h),
-                    CustomButton(
-                      text: "Login",
-                      onPressed: () {
-                        // NavigationService.navigateTo(Routes.forgotPassword);
-                        NavigationService.navigateTo(Routes.bottomNavBar);
-                      },
-                      style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                          .copyWith(
-                              color: AppColors.cFFFFFF,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600),
-                    ),
-                    UIHelper.verticalSpace(30.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Create An Account",
-                          style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                              .copyWith(
-                            color: AppColors.c02344A,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        UIHelper.horizontalSpace(5.w),
-                        GestureDetector(
-                          onTap: () {
-                            NavigationService.navigateTo(Routes.signup);
-                          },
-                          child: Text(
-                            "Sign Up",
-                            style: TextFontStyle.textStyle36c0E4F6MontserratW700
-=======
                         ],
                       ),
                       UIHelper.verticalSpace(50.h),
@@ -156,7 +118,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       CustomButton(
                         text: "Login",
                         onPressed: () {
-                          // NavigationService.navigateTo(Routes.forgotPassword);
+                          NavigationService.navigateTo(Routes.bottomNavBar);
                         },
                         style: TextFontStyle.textStyle36c0E4F6MontserratW700
                             .copyWith(
