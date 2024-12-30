@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:eurogoods/features/home/presentation/home_screen.dart';
 import 'package:eurogoods/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _currentIndex = 0;
 
   final List<StatefulWidget> _screens = [
-    WelcomeScreen(),
+    HomeScreen(),
     WelcomeScreen(),
     WelcomeScreen(),
     WelcomeScreen(),
