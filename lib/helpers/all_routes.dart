@@ -2,8 +2,9 @@
 
 import 'dart:io';
 
-import 'package:eurogoods/features/auth/presentation/forgot_password/presentation/forgot_password.dart';
-import 'package:eurogoods/features/auth/presentation/sign_up/sign_up_screen.dart';
+import 'package:eurogoods/features/onboarding/presentation/auth/forgot_password/forgot_password.dart';
+import 'package:eurogoods/features/onboarding/presentation/auth/sign_up/sign_up_screen.dart';
+import 'package:eurogoods/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 final class Routes {
@@ -34,12 +35,13 @@ final class Routes {
   static const String howToUseBitWord = '/howToUseBitWord';
   static const String settingsScreen = '/settingsScreen';
   static const String changeUserProfile = '/changeUserProfile';
-  static const String forgetPassword = '/forgetPassword';
+  // static const String forgetPassword = '/forgetPassword';
   static const String signup = '/signup';
   static const String signin = '/signin';
   static const String verification = '/verification';
   static const String newPassSet = '/new_pass_set';
   static const String forgotPassword = '/forgotPassword';
+  static const String welcomeScreen = '/welcomeScreen';
 }
 
 final class RouteGenerator {
@@ -49,7 +51,7 @@ final class RouteGenerator {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.forgetPassword:
+      case Routes.forgotPassword:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: ForgotPassword(), settings: settings)
@@ -60,6 +62,10 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(widget: SignUpScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => SignUpScreen());
 
+      case Routes.welcomeScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: WelcomeScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => WelcomeScreen());
       // case Routes.defination:
       // final args = settings.arguments as Map;
       //   return Platform.isAndroid

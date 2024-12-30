@@ -3,10 +3,12 @@
   
 <color name="allPrimaryColor">#FF0B5B78</color>
 <color name="c0E4F6B">#FF0E4F6B</color>
-<color name="c02344A">#FF02344A</color>
+<color name="c335D6E">#FF335D6E</color>
 <color name="c01779D">#FF01779D</color>
 <color name="cFFFFFF">#FFFFFFFF</color>
 <color name="c5A5C5F">#FF5A5C5F</color>
+<color name="c02344A">#FF02344A</color>
+<color name="c676767">#FF676767</color>
 
 
 <!-- <color name="secondaryColor">#FFFFFF</color>

@@ -1,9 +1,7 @@
-import 'package:eurogoods/features/auth/data/rx_signup/rx.dart';
-import 'package:eurogoods/features/auth/model/sign_up_model.dart';
-import 'package:rxdart/rxdart.dart';
 
-SignupRx signupRx =
-    SignupRx(empty: SignupModel(), dataFetcher: BehaviorSubject<SignupModel>());
+
+// SignupRx signupRx =
+//     SignupRx(empty: SignupModel(), dataFetcher: BehaviorSubject<SignupModel>());
 
 // VerifyRX verifyRX = VerifyRX(empty: {}, dataFetcher: BehaviorSubject<Map>());
 
