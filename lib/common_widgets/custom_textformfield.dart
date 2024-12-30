@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
@@ -17,19 +17,22 @@ class CustomTextFormField extends StatefulWidget {
   final Color? iconColor;
   final Color? hintTextColor;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  String? Function(String?)? validator;
 
-  const CustomTextFormField({
-    super.key,
-    this.isPasswordField = false,
-    this.hintText = 'Enter text',
-    this.prefixIcon,
-    this.suffixIcon,
-    this.borderColor = Colors.grey,
-    this.backgroundColor = Colors.white,
-    this.iconColor = Colors.black,
-    this.hintTextColor = Colors.grey,
-    this.controller,
-  });
+  CustomTextFormField(
+      {super.key,
+      this.isPasswordField = false,
+      this.hintText = 'Enter text',
+      this.prefixIcon,
+      this.suffixIcon,
+      this.borderColor = Colors.grey,
+      this.backgroundColor = Colors.white,
+      this.iconColor = Colors.black,
+      this.hintTextColor = Colors.grey,
+      this.controller,
+      this.keyboardType,
+      this.validator});
 
   @override
   _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
@@ -72,7 +75,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           Expanded(
             child: TextFormField(
               controller: widget.controller,
+              keyboardType: widget.keyboardType,
               obscureText: _obscureText,
+              validator: widget.validator,
               decoration: InputDecoration(
                 hintText: widget.hintText,
                 hintStyle:
