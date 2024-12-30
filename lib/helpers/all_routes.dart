@@ -4,6 +4,8 @@ import 'dart:io';
 
 import 'package:eurogoods/features/auth/presentation/forgot_password/presentation/forgot_password.dart';
 import 'package:eurogoods/features/auth/presentation/sign_up/sign_up_screen.dart';
+import 'package:eurogoods/features/home/presentation/home_screen.dart';
+import 'package:eurogoods/navigation_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 final class Routes {
@@ -40,6 +42,8 @@ final class Routes {
   static const String verification = '/verification';
   static const String newPassSet = '/new_pass_set';
   static const String forgotPassword = '/forgotPassword';
+  static const String bottomNavBar = '/bottomNavBar';
+  static const String homeScreen = '/homeScreen';
 }
 
 final class RouteGenerator {
@@ -59,6 +63,16 @@ final class RouteGenerator {
         return Platform.isAndroid
             ? _FadedTransitionRoute(widget: SignUpScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => SignUpScreen());
+
+      case Routes.bottomNavBar:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: BottomNavBar(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => BottomNavBar());
+
+      case Routes.homeScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: HomeScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => HomeScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;

@@ -91,6 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       text: "Login",
                       onPressed: () {
                         // NavigationService.navigateTo(Routes.forgotPassword);
+                        NavigationService.navigateTo(Routes.bottomNavBar);
                       },
                       style: TextFontStyle.textStyle36c0E4F6MontserratW700
                           .copyWith(
