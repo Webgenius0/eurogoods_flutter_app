@@ -107,6 +107,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ))),
+      backgroundColor: AppColors.cF5F5F5,
+      body: Column(
+        children: [
+          //----------------------card---------------------
+          Container(
+            height: 234.h,
+            width: 157.w,
+            color: AppColors.cFFFFFF.withOpacity(0.6),
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Image.asset(Assets.images.cocaKola.path),
+                    Text("Coca Cola 8/2 Liter"),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Text("Categories"),
+        ],
+      ),
     );
   }
 }
