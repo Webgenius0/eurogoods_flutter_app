@@ -1,4 +1,3 @@
-import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
