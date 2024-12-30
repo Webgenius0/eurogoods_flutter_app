@@ -1,6 +1,9 @@
 import 'package:eurogoods/constants/text_font_style.dart';
+import 'package:eurogoods/features/home/widgets/categories_button.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
+import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isSwitchedToQuantityCount = true;
+  bool toogleWishList = true;
 
   List<Map<String, dynamic>> beverageList = [
     {
@@ -137,27 +141,98 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ))),
       backgroundColor: AppColors.cF5F5F5,
-      body: Column(
-        children: [
-          UIHelper.verticalSpace(32.h),
-          //----------------------card---------------------
-          SizedBox(
-            height: 260.h,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: beverageList.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      EdgeInsets.only(right: 4.w), // Add horizontal spacing
-                  child: productCard(),
-                );
-              },
-            ),
-          )
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 21.w),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              UIHelper.verticalSpace(32.h),
+              //----------------------card---------------------
+              SizedBox(
+                height: 260.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: beverageList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(
+                          right: 30.w), // Add horizontal spacing
+                      child: productCard(),
+                    );
+                  },
+                ),
+              ),
 
-          // Text("Categories"),
-        ],
+              UIHelper.verticalSpace(30.h),
+              Align(
+                alignment: Alignment.centerLeft, // Aligns the text to the left
+                child: Text("Categories",
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                        color: AppColors.c000000,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500)),
+              ),
+              UIHelper.verticalSpace(16.h),
+              // -------------------Categories --------------------------
+              Wrap(
+                spacing: 7.0, // Horizontal spacing
+                runSpacing: 5.0, // Vertical spacing
+                children: [
+                  categoriesButton('All', selected: true),
+                  categoriesButton('Special'),
+                  categoriesButton('Water'),
+                  categoriesButton('Coca-Cola'),
+                  categoriesButton('Calypso'),
+                  categoriesButton('Vitamin Water'),
+                  categoriesButton('Energy Drinks'),
+                  categoriesButton('Snapple'),
+                  categoriesButton('Arizona'),
+                  categoriesButton('Sparking Water'),
+                  categoriesButton('Pepsi'),
+                  categoriesButton('Paper Product'),
+                  categoriesButton('Coffee'),
+                  categoriesButton('Eggs'),
+                  categoriesButton('Kosher Soda'),
+                  categoriesButton('Other'),
+                ],
+              ),
+
+              UIHelper.verticalSpace(28.h),
+
+              GestureDetector(
+                onTap: () {
+                  NavigationService.navigateTo(Routes.allProdcutScreen);
+                },
+                child: Align(
+                  alignment:
+                      Alignment.centerRight, // Aligns the text to the left
+                  child: Text("View All Products",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              fontSize: 14.sp, fontWeight: FontWeight.w500)),
+                ),
+              ),
+              UIHelper.verticalSpace(10.h),
+              SizedBox(
+                height: 500.h,
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 2 / 3.5,
+                  ),
+                  itemCount: beverageList.length,
+                  itemBuilder: (context, idx) {
+                    final product = beverageList[idx];
+                    return productCard();
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -172,6 +247,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Stack(
         children: [
+          Positioned(
+              top: 30,
+              right: 25,
+              child: SvgPicture.asset(
+                Assets.icons.loveBg,
+                height: 12.h,
+                width: 12.w,
+              )),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
             child: Column(
@@ -282,8 +365,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         ],
                       )
-
-                //-----------------------increase/decrease quantity button -------------------------------
               ],
             ),
           )
