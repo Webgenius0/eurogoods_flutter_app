@@ -7,7 +7,7 @@ Widget categoriesButton(String text, {bool selected = false}) {
   return ChoiceChip(
     label: Text(text),
     selected: selected,
-    selectedColor: Colors.teal[100],
+    selectedColor: AppColors.c01779D,
     backgroundColor: Colors.white,
     shape: const StadiumBorder(
       side: BorderSide(color: AppColors.c01779D),
