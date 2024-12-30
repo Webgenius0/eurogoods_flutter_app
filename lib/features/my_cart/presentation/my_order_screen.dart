@@ -26,7 +26,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
       appBar: CustomAppBar(
         isCentered: false,
         title: Text(
-          'My Order',
+          'My Cart',
           style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
               fontSize: 18.sp,
               fontWeight: FontWeight.w500,
