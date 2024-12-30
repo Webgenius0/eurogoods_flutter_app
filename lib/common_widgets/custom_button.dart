@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
             end: Alignment.bottomRight, // Gradient end
           ),
           borderRadius:
-              BorderRadius.circular(30.r), // You can adjust the radius
+              BorderRadius.circular(47.r), // You can adjust the radius
         ),
         child: Text(
           text,

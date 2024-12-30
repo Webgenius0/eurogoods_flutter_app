@@ -321,12 +321,13 @@ import 'package:eurogoods/common_widgets/custom_textformfield.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
+import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:eurogoods/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -337,134 +338,152 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  // variables
   TextEditingController nameOrEmailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 21.w,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    UIHelper.verticalSpace(45.h),
-                    Text(
-                      "Create an \naccount",
-                      style: TextFontStyle.textStyle36c0E4F6MontserratW700,
-                    ),
-                    UIHelper.verticalSpace(44.h),
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 21.w,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      UIHelper.verticalSpace(45.h),
+                      Text(
+                        "Create an \naccount",
+                        style: TextFontStyle.textStyle36c0E4F6MontserratW700,
+                      ),
+                      UIHelper.verticalSpace(44.h),
 
-                    CustomTextFormField(
-                      hintText: 'Username or Email',
-                      prefixIcon: Assets.icons.user,
-                      backgroundColor: AppColors.cFFFFFF,
-                      borderColor: AppColors.c02344A,
-                      iconColor: AppColors.c02344A,
-                      hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
-                      controller: nameOrEmailController,
-                    ),
+                      //------------username or email-------------
+                      CustomTextFormField(
+                        hintText: 'Username or Email',
+                        prefixIcon: Assets.icons.user,
+                        backgroundColor: AppColors.cFFFFFF,
+                        borderColor: AppColors.c02344A,
+                        iconColor: AppColors.c02344A,
+                        hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
+                        controller: nameOrEmailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your name or email';
+                          }
+                          return null;
+                        },
+                      ),
+                      UIHelper.verticalSpace(31.h),
 
-                    UIHelper.verticalSpace(31.h),
-                    // const CustomTextFormField(
-                    //   hintText: "Password",
-                    // ),
+                      //------------password textfield-------------
+                      CustomTextFormField(
+                          isPasswordField: true,
+                          hintText: 'Password',
+                          prefixIcon: Assets.icons.password,
+                          backgroundColor: AppColors.cFFFFFF,
+                          borderColor: AppColors.c02344A,
+                          iconColor: AppColors.c02344A,
+                          hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
+                          controller: passwordController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            if (value.length < 8) {
+                              return 'Password must be at least 8 characters long';
+                            }
+                            return null;
+                          }),
+                      UIHelper.verticalSpace(31.h),
 
-                    CustomTextFormField(
-                      isPasswordField: true,
-                      hintText: 'Password',
-                      prefixIcon: Assets.icons.password,
-                      backgroundColor: AppColors.cFFFFFF,
-                      borderColor: AppColors.c02344A,
-                      iconColor: AppColors.c02344A,
-                      hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
-                      controller: passwordController,
-                    ),
-                    UIHelper.verticalSpace(31.h),
-                    CustomTextFormField(
-                      isPasswordField: true,
-                      hintText: 'Confirm Password',
-                      prefixIcon: Assets.icons.password,
-                      backgroundColor: AppColors.cFFFFFF,
-                      borderColor: AppColors.c02344A,
-                      iconColor: AppColors.c02344A,
-                      hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
-                      controller: passwordController,
-                    ),
+                      //------------confirm password textfield-------------
+                      CustomTextFormField(
+                          isPasswordField: true,
+                          hintText: 'Confirm Password',
+                          prefixIcon: Assets.icons.password,
+                          backgroundColor: AppColors.cFFFFFF,
+                          borderColor: AppColors.c02344A,
+                          iconColor: AppColors.c02344A,
+                          hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
+                          controller: confirmPasswordController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your confirm password';
+                            }
+                            if (value.length < 8) {
+                              return 'Password must be at least 8 characters long'
+                                  .tr;
+                            }
+                            // if (value.trim() !=
+                            //     provider.passwordController.text.trim()) {
+                            //   return "Both passwords do not match";
+                            // }
+                            return null;
+                          }),
+                      UIHelper.verticalSpace(30.h),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextButton(
-                          style: TextButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 0.sp)),
-                          onPressed: () {},
-                          child: Text(
-                            "By clicking the Register button, you agree \nto the public offer",
-                            style: TextFontStyle.textStyle36c0E4F6MontserratW700
+                      //------------Create Account-------------
+                      CustomButton(
+                        text: "Create Account",
+                        onPressed: () {
+                          // NavigationService.navigateTo(
+                          //     Routes.createAccountScreen);
+                        },
+                        style: TextFontStyle.textStyle36c0E4F6MontserratW700
+                            .copyWith(
+                                color: AppColors.cFFFFFF,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600),
+                      ),
+                      UIHelper.verticalSpace(48.h),
+
+                      //------------login-------------
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "I Already Have and account",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
                                 .copyWith(
-                              color: AppColors.c01779D,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    UIHelper.verticalSpace(50.h),
-                    CustomButton(
-                      text: "Create Account",
-                      onPressed: () {
-                        // NavigationService.navigateTo(
-                        //     Routes.createAccountScreen);
-                      },
-                      style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                          .copyWith(
-                              color: AppColors.cFFFFFF,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600),
-                    ),
-                    UIHelper.verticalSpace(30.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "I Already Have and account",
-                          style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                              .copyWith(
-                            color: AppColors.c02344A,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        UIHelper.horizontalSpace(5.w),
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => WelcomeScreen());
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                                .copyWith(
-                              color: AppColors.c01779D,
+                              color: AppColors.c02344A,
                               fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.underline,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          UIHelper.horizontalSpace(5.w),
+                          GestureDetector(
+                            onTap: () => NavigationService.navigateTo(
+                                Routes.welcomeScreen),
+                            child: Text(
+                              "Login",
+                              style: TextFontStyle
+                                  .textStyle36c0E4F6MontserratW700
+                                  .copyWith(
+                                color: AppColors.c01779D,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
