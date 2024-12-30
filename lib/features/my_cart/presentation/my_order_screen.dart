@@ -3,6 +3,7 @@ import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,8 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
         child: Column(
           children: [
             UIHelper.verticalSpace(20.h),
+
+            //------------list of order items-------------
             Expanded(
                 child: ListView.builder(
               itemCount: 12,
@@ -226,6 +229,8 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
               },
             )),
             UIHelper.verticalSpace(10.h),
+
+            //------------totall price-------------
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -257,9 +262,8 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                     width: double.infinity,
                     child: CustomButton(
                       text: "Checkout Now",
-                      onPressed: () {
-                        //NavigationService.navigateTo(Routes.bottomNavBar);
-                      },
+                      onPressed: () =>
+                          NavigationService.navigateTo(Routes.checkoutScreen),
                       style: TextFontStyle.textStyle36c0E4F6MontserratW700
                           .copyWith(
                               color: AppColors.cFFFFFF,
