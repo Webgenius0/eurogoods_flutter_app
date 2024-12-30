@@ -1,5 +1,9 @@
 // ignore_for_file: deprecated_member_use
+import 'package:eurogoods/constants/text_font_style.dart';
+import 'package:eurogoods/features/history/presentation/history_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
+import 'package:eurogoods/features/my_cart/presentation/my_order_screen.dart';
+import 'package:eurogoods/features/profile/presentation/profile_screen.dart';
 import 'package:eurogoods/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,10 +29,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<StatefulWidget> _screens = [
     HomeScreen(),
-    WelcomeScreen(),
-    WelcomeScreen(),
-    WelcomeScreen(),
-    WelcomeScreen(),
+    MyOrderScreen(),
+    HistoryScreen(),
+    ProfileScreen(),
   ];
 
   @override
@@ -50,97 +53,70 @@ class _BottomNavBarState extends State<BottomNavBar> {
         bottomNavigationBar: SizedBox(
           height: 70.h,
           child: CustomNavigationBar(
-            iconSize: 24.r,
-            selectedColor: Colors.red,
-            strokeColor: AppColors.allPrimaryColor,
-            unSelectedColor: Colors.black,
+            iconSize: 24..sp,
+            strokeColor: AppColors.c01779D,
+            unSelectedColor: AppColors.c17242B,
             backgroundColor: Colors.white,
             items: [
               CustomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  Assets.icons.home,
+                  Assets.icons.categories,
                   color: _currentIndex == 0
-                      ? AppColors.allPrimaryColor
-                      : AppColors.c5A5C5F,
+                      ? AppColors.c01779D
+                      : AppColors.c17242B,
                 ),
-                title: Text(
-                  "${"Home"}",
-                  // style: TextFontStyle.textStyle16cFFFFFFPoppinsW500.copyWith(
-                  //   fontSize: 14.sp,
-                  //   color: (_currentIndex == 0)
-                  //       ? AppColors.allPrimaryColor
-                  //       : AppColors.c5A5C5F,
-                  // )
-                ),
+                title: Text('Categories',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: _currentIndex == 0
+                          ? AppColors.c01779D
+                          : AppColors.c17242B,
+                      fontSize: 10.sp,
+                    )),
               ),
               CustomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  Assets.icons.home,
+                  Assets.icons.cart,
                   color: _currentIndex == 1
-                      ? AppColors.allPrimaryColor
-                      : AppColors.c5A5C5F,
+                      ? AppColors.c01779D
+                      : AppColors.c17242B,
                 ),
-                title: Text(
-                  "Vocabulary",
-                  // style: TextFontStyle.textStyle16cFFFFFFPoppinsW500.copyWith(
-                  //   fontSize: 12.sp,
-                  //   color: (_currentIndex == 1)
-                  //       ? AppColors.allPrimaryColor
-                  //       : AppColors.c5A5C5F,
-                  // ),
-                ),
+                title: Text('My Cart',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: _currentIndex == 1
+                          ? AppColors.c01779D
+                          : AppColors.c17242B,
+                      fontSize: 10.sp,
+                    )),
               ),
               CustomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  Assets.icons.home,
+                  Assets.icons.history,
                   color: _currentIndex == 2
-                      ? AppColors.allPrimaryColor
-                      : AppColors.c5A5C5F,
+                      ? AppColors.c01779D
+                      : AppColors.c17242B,
                 ),
-                title: Text(
-                  "Remidation",
-                  // style: TextFontStyle.textStyle16cFFFFFFPoppinsW500.copyWith(
-                  //   fontSize: 12.sp,
-                  //   color: (_currentIndex == 2)
-                  //       ? AppColors.allPrimaryColor
-                  //       : AppColors.c5A5C5F,
-                  // ),
-                ),
+                title: Text('History',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: _currentIndex == 2
+                          ? AppColors.c01779D
+                          : AppColors.c17242B,
+                      fontSize: 10.sp,
+                    )),
               ),
               CustomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  Assets.icons.home,
+                  Assets.icons.profile,
                   color: _currentIndex == 3
-                      ? AppColors.allPrimaryColor
-                      : AppColors.c5A5C5F,
+                      ? AppColors.c01779D
+                      : AppColors.c17242B,
                 ),
-                title: Text(
-                  "Custom",
-                  //   style: TextFontStyle.textStyle16cFFFFFFPoppinsW500.copyWith(
-                  //       fontSize: 12.sp,
-                  //       color: (_currentIndex == 3)
-                  //           ? AppColors.allPrimaryColor
-                  //           : AppColors.c5A5C5F,
-                  //       overflow: TextOverflow.ellipsis),
-                  // ),
-                ),
-                // CustomNavigationBarItem(
-                //   icon: SvgPicture.asset(
-                //     Assets.icons.user,
-                //     color: _currentIndex == 4
-                //         ? AppColors.allPrimaryColor
-                //         : AppColors.c5A5C5F,
-                //   ),
-                //   title: Text(
-                //     "Profile",
-                //     style: TextFontStyle.textStyle16cFFFFFFPoppinsW500.copyWith(
-                //       fontSize: 12.sp,
-                //       color: (_currentIndex == 4)
-                //           ? AppColors.allPrimaryColor
-                //           : AppColors.c5A5C5F,
-                //     ),
-                //   ),
-                // ),
+                title: Text('Profile',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: _currentIndex == 3
+                          ? AppColors.c01779D
+                          : AppColors.c17242B,
+                      fontSize: 10.sp,
+                    )),
               )
             ],
             currentIndex: _currentIndex,
