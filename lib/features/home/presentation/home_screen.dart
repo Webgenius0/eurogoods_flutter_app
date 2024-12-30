@@ -1,3 +1,4 @@
+import 'package:eurogoods/common_widgets/custom_productcard.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/features/home/widgets/categories_button.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
@@ -158,15 +159,32 @@ class _HomeScreenState extends State<HomeScreen> {
               UIHelper.verticalSpace(32.h),
               //----------------------card---------------------
               SizedBox(
-                height: 260.h,
+                height: 234.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: beverageList.length,
                   itemBuilder: (context, index) {
+                    final product = beverageList[index];
                     return Padding(
                       padding: EdgeInsets.only(
-                          right: 30.w), // Add horizontal spacing
-                      child: productCard(),
+                          right: 20.w), // Add horizontal spacing
+                      child: ProductCard(
+                        imagePath: product['image'],
+                        productName: product['name'],
+                        productCode: product['productId'],
+                        productQuantity: product['quantity'].toString(),
+                        isSwitchedToQuantityCount:
+                            false, // Set this based on your logic
+                        onAddPressed: () {
+                          // Add action for adding product
+                        },
+                        onIncrease: () {
+                          // Action for increasing quantity
+                        },
+                        onDecrease: () {
+                          // Action for decreasing quantity
+                        },
+                      ),
                     );
                   },
                 ),
@@ -174,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               UIHelper.verticalSpace(30.h),
               Align(
-                alignment: Alignment.centerLeft, // Aligns the text to the left
+                alignment: Alignment.centerLeft,
                 child: Text("Categories",
                     style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
                         color: AppColors.c000000,
@@ -235,149 +253,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: beverageList.length,
                   itemBuilder: (context, idx) {
                     final product = beverageList[idx];
-                    return productCard();
+                    return ProductCard(
+                      imagePath: product['image'],
+                      productName: product['name'],
+                      productCode: product['productId'],
+                      productQuantity: product['quantity'].toString(),
+                      isSwitchedToQuantityCount:
+                          false, // Set this based on your logic
+                      onAddPressed: () {
+                        // Add action for adding product
+                      },
+                      onIncrease: () {
+                        // Action for increasing quantity
+                      },
+                      onDecrease: () {
+                        // Action for decreasing quantity
+                      },
+                    );
                   },
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Container productCard() {
-    return Container(
-      height: 234.h,
-      width: 157.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: AppColors.cFFFFFF,
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-              top: 30,
-              right: 25,
-              child: SvgPicture.asset(
-                Assets.icons.loveBg,
-                height: 12.h,
-                width: 12.w,
-              )),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                UIHelper.verticalSpace(19.h),
-                Image.asset(
-                  Assets.images.cocaKola.path,
-                  width: 90.w,
-                  height: 90.h,
-                ),
-                UIHelper.verticalSpace(26.h),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Coca Cola 8/2 Liter",
-                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.c000000),
-                  ),
-                ),
-                UIHelper.verticalSpace(6.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "C001",
-                      style: TextFontStyle.textStyle24c848585PoppinsW400
-                          .copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.c000000.withOpacity(0.7)),
-                    ),
-                    Text(
-                      "Cs Qty: 8",
-                      style: TextFontStyle.textStyle24c848585PoppinsW400
-                          .copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.c000000.withOpacity(0.7)),
-                    ),
-                  ],
-                ),
-                UIHelper.verticalSpace(8.h),
-
-                //------------------add button--------------
-                isSwitchedToQuantityCount
-                    ? GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isSwitchedToQuantityCount =
-                                !isSwitchedToQuantityCount;
-                          });
-                        },
-                        child: Container(
-                          height: 26.h,
-                          width: 141.w,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF39CDFD),
-                                Color(0xFF0680A6),
-                              ],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(47.r),
-                          ),
-                          child: Text(
-                            "Add +",
-                            style: TextFontStyle.textStyle24c848585PoppinsW400
-                                .copyWith(
-                                    color: AppColors.cFFFFFF,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 10.sp),
-                          ),
-                        ),
-                      )
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 24.h,
-                            width: 25.w,
-                            color: AppColors.cEBECF0,
-                            child: Center(
-                              child: Text("+"),
-                            ),
-                          ),
-                          Container(
-                            height: 24.h,
-                            width: 25.w,
-                            color: AppColors.cF5F5F5,
-                            child: Center(
-                              child: Text("1"),
-                            ),
-                          ),
-                          Container(
-                            height: 24.h,
-                            width: 25.w,
-                            color: AppColors.cEBECF0,
-                            child: Center(
-                              child: Text("-"),
-                            ),
-                          )
-                        ],
-                      )
-              ],
-            ),
-          )
-        ],
       ),
     );
   }
