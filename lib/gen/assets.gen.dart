@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/categories.svg
   String get categories => 'assets/icons/categories.svg';
 
+  /// File path: assets/icons/change_password.svg
+  String get changePassword => 'assets/icons/change_password.svg';
+
   /// File path: assets/icons/cross_icon.svg
   String get crossIcon => 'assets/icons/cross_icon.svg';
 
@@ -54,8 +57,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.svg
   String get email => 'assets/icons/email.svg';
 
+  /// File path: assets/icons/emails.svg
+  String get emails => 'assets/icons/emails.svg';
+
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
+
+  /// File path: assets/icons/facebook.svg
+  String get facebook => 'assets/icons/facebook.svg';
 
   /// File path: assets/icons/favorite.svg
   String get favorite => 'assets/icons/favorite.svg';
@@ -81,11 +90,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/imageforward.svg
   String get imageforward => 'assets/icons/imageforward.svg';
 
+  /// File path: assets/icons/instragram.svg
+  String get instragram => 'assets/icons/instragram.svg';
+
   /// File path: assets/icons/location.svg
   String get location => 'assets/icons/location.svg';
 
   /// File path: assets/icons/location_change.svg
   String get locationChange => 'assets/icons/location_change.svg';
+
+  /// File path: assets/icons/location_on.svg
+  String get locationOn => 'assets/icons/location_on.svg';
 
   /// File path: assets/icons/log_out.svg
   String get logOut => 'assets/icons/log_out.svg';
@@ -114,6 +129,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/payment.svg
   String get payment => 'assets/icons/payment.svg';
 
+  /// File path: assets/icons/phone.svg
+  String get phone => 'assets/icons/phone.svg';
+
   /// File path: assets/icons/plash_icon.svg
   String get plashIcon => 'assets/icons/plash_icon.svg';
 
@@ -132,6 +150,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search_normal.svg
   String get searchNormal => 'assets/icons/search_normal.svg';
 
+  /// File path: assets/icons/twitter.svg
+  String get twitter => 'assets/icons/twitter.svg';
+
   /// File path: assets/icons/user.svg
   String get user => 'assets/icons/user.svg';
 
@@ -144,6 +165,7 @@ class $AssetsIconsGen {
         bank,
         cart,
         categories,
+        changePassword,
         crossIcon,
         defaultAddress,
         delete,
@@ -151,7 +173,9 @@ class $AssetsIconsGen {
         editProfile,
         editProfilePic,
         email,
+        emails,
         eye,
+        facebook,
         favorite,
         filter,
         filterBlack,
@@ -160,8 +184,10 @@ class $AssetsIconsGen {
         home,
         imagebackward,
         imageforward,
+        instragram,
         location,
         locationChange,
+        locationOn,
         logOut,
         logWithoutBg,
         loveBg,
@@ -171,12 +197,14 @@ class $AssetsIconsGen {
         orderSuccess,
         password,
         payment,
+        phone,
         plashIcon,
         plus,
         plusWithBorder,
         profile,
         search,
         searchNormal,
+        twitter,
         user
       ];
 }
@@ -232,6 +260,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
+  /// File path: assets/images/profile_image.jpg
+  AssetGenImage get profileImage =>
+      const AssetGenImage('assets/images/profile_image.jpg');
+
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -257,6 +289,7 @@ class $AssetsImagesGen {
         locationImage,
         map,
         profile,
+        profileImage,
         splash,
         sprite,
         vitaminWater

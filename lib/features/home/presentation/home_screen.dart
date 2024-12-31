@@ -105,23 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
                               child: GestureDetector(
-                                onTap: () {
-                                  // _searchController.clear();
-                                  // _updateSearchQuery('');
-                                },
-                                child: GestureDetector(
-                                    onTap: () {
-                                      // NavigationService.navigateTo(
-                                      //     Routes.filterScreen);
-                                    },
-                                    child: InkWell(
-                                        onTap: () {
-                                          // NavigationService.navigateTo(
-                                          //     Routes.filterScreen);
-                                        },
-                                        child: SvgPicture.asset(
-                                            Assets.icons.filter))),
-                              ),
+                                  onTap: () {
+                                    NavigationService.navigateTo(
+                                        Routes.favouriteScreen);
+                                  },
+                                  child: SvgPicture.asset(Assets.icons.filter)),
                             ),
                           ],
                         ),
@@ -166,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
               UIHelper.verticalSpace(32.h),
               //----------------------card---------------------
               SizedBox(
-                height: 234.h,
+                height: 250.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: beverageList.length,
@@ -262,27 +250,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    childAspectRatio: 0.72,
+                    childAspectRatio: 0.62,
                   ),
                   itemCount: min(beverageList.length, 4),
                   itemBuilder: (context, idx) {
                     final product = beverageList[idx];
-                    return ProductCard(
-                      imagePath: product['image'],
-                      productName: product['name'],
-                      productCode: product['productId'],
-                      productQuantity: product['quantity'].toString(),
-                      isSwitchedToQuantityCount:
-                          false, // Set this based on your logic
-                      onAddPressed: () {
-                        // Add action for adding product
+                    return InkWell(
+                      onTap: () {
+                        NavigationService.navigateTo(
+                            Routes.productDetailsScreen);
                       },
-                      onIncrease: () {
-                        // Action for increasing quantity
-                      },
-                      onDecrease: () {
-                        // Action for decreasing quantity
-                      },
+                      child: ProductCard(
+                        imagePath: product['image'],
+                        productName: product['name'],
+                        productCode: product['productId'],
+                        productQuantity: product['quantity'].toString(),
+                        isSwitchedToQuantityCount:
+                            false, // Set this based on your logic
+                        onAddPressed: () {
+                          // Add action for adding product
+                        },
+                        onIncrease: () {
+                          // Action for increasing quantity
+                        },
+                        onDecrease: () {
+                          // Action for decreasing quantity
+                        },
+                      ),
                     );
                   },
                 ),

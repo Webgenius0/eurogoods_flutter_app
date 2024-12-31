@@ -33,10 +33,19 @@
 <color name="cFFEEE3">#FFFFEEE3</color>
 <color name="cFF5F00">#FFFF5F00</color>
 <color name="cF5F6FA">#FFF5F6FA</color>
+
 <color name="c3B3B3B">#FF3B3B3B</color>
 <color name="c02344A">#FF02344A</color>
 <color name="c17242B">#FF17242B</color>
 
+
+
+<color name="c055AD9">#FF055AD9</color>
+<color name="c1DB435">#FF1DB435</color>
+
+<color name="c17242B">#17242B</color>
+<color name="cE00000">#E00000</color>
+<color name="c000000"> #000000</color>
 
 
 

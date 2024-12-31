@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:eurogoods/features/history/presentation/order_details.dart';
 import 'package:eurogoods/features/home/presentation/all_prodcut_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
 import 'package:eurogoods/features/home/presentation/product_details_screen.dart';
@@ -9,8 +10,13 @@ import 'package:eurogoods/features/my_cart/presentation/add_new_card.dart';
 import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
+
 import 'package:eurogoods/features/onboarding/presentation/auth/create_new_password/create_new_password_screen.dart';
 import 'package:eurogoods/features/onboarding/presentation/auth/otp_verification/otp_verification_screen.dart';
+
+import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
+import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
+
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
@@ -65,7 +71,10 @@ final class Routes {
   static const String searchScreen = '/searchScreen';
   static const String saveCard = '/saveCard';
   static const String addNewCardScreen = '/addNewCardScreen';
+  static const String editProfile = '/editProfile';
+  static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String searchContentScreen = '/searchContentScreen';
+
 
   //otp-verify && new-pass
   //--->>
@@ -73,6 +82,9 @@ final class Routes {
   static const String createNewPassScreen = '/create_new_pass_screen';
   static const String AddNewAddressScreen = '/Add_new_address_screen';
   //<<--
+
+  static const String favouriteScreen = '/favouriteScreen';
+
 }
 
 final class RouteGenerator {
@@ -167,11 +179,27 @@ final class RouteGenerator {
                 widget: AddNewCardScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => AddNewCardScreen());
 
+      case Routes.editProfile:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: EditProfileScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => EditProfileScreen());
+      case Routes.orderDetailsScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: OrderDetailsScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => OrderDetailsScreen());
       case Routes.searchContentScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: SearchContentScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => SearchContentScreen());
+
+      case Routes.favouriteScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: FavouriteScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => FavouriteScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;

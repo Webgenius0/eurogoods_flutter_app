@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
 import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
@@ -12,22 +10,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CheckoutScreen extends StatefulWidget {
-  const CheckoutScreen({super.key});
+class OrderDetailsScreen extends StatefulWidget {
+  const OrderDetailsScreen({super.key});
 
   @override
-  State<CheckoutScreen> createState() => _CheckoutScreenState();
+  State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
 }
 
-class _CheckoutScreenState extends State<CheckoutScreen> {
+class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.cFFFFFF,
+      backgroundColor: AppColors.cF5F5F5,
       appBar: CustomAppBar(
         isCentered: false,
         title: Text(
-          'Checkout',
+          'Order Details',
           style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
               fontSize: 18.sp,
               fontWeight: FontWeight.w500,
@@ -54,61 +52,93 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   color: AppColors.c17242B),
             ),
             UIHelper.verticalSpace(12.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      Assets.icons.location,
-                      color: AppColors.c17242B,
-                      height: 16.h,
-                      width: 16.w,
-                    ),
-                    UIHelper.horizontalSpace(9.h),
-                    Text(
-                      'Home',
-                      style: TextFontStyle.textStyle24c848585PoppinsW400
-                          .copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.c000000),
-                    ),
-                  ],
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    padding: EdgeInsets.all(5.sp),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),
-                        border: Border.all(width: 1, color: AppColors.c01779D)),
-                    child: Center(
-                      child: Text(
-                        'Change',
+            Container(
+              padding: EdgeInsets.all(12.sp),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.r),
+                  color: AppColors.cFFFFFF),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Home',
                         style: TextFontStyle.textStyle24c848585PoppinsW400
                             .copyWith(
-                                fontSize: 12.sp, color: AppColors.c000000),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
                       ),
-                    ),
+                      UIHelper.horizontalSpace(16.h),
+                      Text(
+                        'Main Address',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-
-            UIHelper.verticalSpace(8.h),
-
-            Text(
-              '3517 W. Gray St. Utica, Pennsylvania 57867',
-              style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.c17242B),
-            ),
-            UIHelper.verticalSpace(8.h),
-            Divider(
-              color: AppColors.c848585.withOpacity(0.5),
-              height: 1.h,
+                  UIHelper.verticalSpace(8.h),
+                  Divider(
+                    color: AppColors.c848585.withOpacity(0.5),
+                    height: 1.h,
+                  ),
+                  UIHelper.verticalSpace(8.h),
+                  Row(
+                    children: [
+                      Text(
+                        'Jane Cooper',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
+                      ),
+                      UIHelper.horizontalSpace(16.h),
+                      Text(
+                        '(684) 555-0102',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
+                      ),
+                    ],
+                  ),
+                  UIHelper.verticalSpace(14.h),
+                  Text(
+                    '3517 W. Gray St. Utica, Pennsylvania 57867',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.c17242B),
+                  ),
+                  UIHelper.verticalSpace(4.h),
+                  Row(
+                    children: [
+                      SvgPicture.asset(
+                        Assets.icons.location,
+                        color: AppColors.c17242B,
+                        height: 16.h,
+                        width: 16.w,
+                      ),
+                      UIHelper.horizontalSpace(9.h),
+                      Text(
+                        'Pinpoint already',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
 
             UIHelper.verticalSpace(20.h),
@@ -245,13 +275,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         child: Container(
           height: 55.h,
           width: double.infinity,
-          child: CustomButton(
-            text: "Continue to payment",
-            onPressed: () => NavigationService.navigateTo(Routes.paymentScreen),
-            style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                color: AppColors.cFFFFFF,
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w500),
+          padding: EdgeInsets.symmetric(horizontal: 8.sp),
+          decoration: BoxDecoration(
+              color: AppColors.cFFFFFF,
+              borderRadius: BorderRadius.circular(8.r)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Total amount',
+                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.c000000)),
+              Text('\$500',
+                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.c000000))
+            ],
           ),
         ),
       ),
