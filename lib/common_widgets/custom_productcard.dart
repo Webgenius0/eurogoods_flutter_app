@@ -40,8 +40,8 @@ class ProductCard extends StatelessWidget {
             right: 18,
             child: SvgPicture.asset(
               'assets/icons/love_bg.svg',
-              height: 16.4,
-              width: 16.4,
+              height: 16,
+              width: 16,
             ),
           ),
           Padding(

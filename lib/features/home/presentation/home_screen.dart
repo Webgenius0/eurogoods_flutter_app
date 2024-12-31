@@ -105,23 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
                               child: GestureDetector(
-                                onTap: () {
-                                  // _searchController.clear();
-                                  // _updateSearchQuery('');
-                                },
-                                child: GestureDetector(
-                                    onTap: () {
-                                      // NavigationService.navigateTo(
-                                      //     Routes.filterScreen);
-                                    },
-                                    child: InkWell(
-                                        onTap: () {
-                                          // NavigationService.navigateTo(
-                                          //     Routes.filterScreen);
-                                        },
-                                        child: SvgPicture.asset(
-                                            Assets.icons.filter))),
-                              ),
+                                  onTap: () {
+                                    NavigationService.navigateTo(
+                                        Routes.favouriteScreen);
+                                  },
+                                  child: SvgPicture.asset(Assets.icons.filter)),
                             ),
                           ],
                         ),
