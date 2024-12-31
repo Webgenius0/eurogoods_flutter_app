@@ -9,7 +9,6 @@ import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -73,20 +72,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
               rightIconPath: Assets.icons.arrowRight,
               text: "Address"),
           UIHelper.verticalSpace(20.h),
-          CustomListtileWidget(
-              leftIconPath: Assets.icons.changePassword,
-              rightIconPath: Assets.icons.arrowRight,
-              text: "Change password"),
+          GestureDetector(
+            onTap: () =>
+                NavigationService.navigateTo(Routes.changePasswordScreen),
+            child: CustomListtileWidget(
+                leftIconPath: Assets.icons.changePassword,
+                rightIconPath: Assets.icons.arrowRight,
+                text: "Change password"),
+          ),
           UIHelper.verticalSpace(20.h),
           CustomListtileWidget(
               leftIconPath: Assets.icons.notification,
               rightIconPath: Assets.icons.arrowRight,
               text: "Notification"),
           UIHelper.verticalSpace(20.h),
-          CustomListtileWidget(
-              leftIconPath: Assets.icons.help,
-              rightIconPath: Assets.icons.arrowRight,
-              text: "Help Center"),
+          GestureDetector(
+            onTap: () => NavigationService.navigateTo(Routes.helpCenter),
+            child: CustomListtileWidget(
+                leftIconPath: Assets.icons.help,
+                rightIconPath: Assets.icons.arrowRight,
+                text: "Help Center"),
+          ),
           UIHelper.verticalSpace(20.h),
           CustomListtileWidget(
               leftIconPath: Assets.icons.payment,

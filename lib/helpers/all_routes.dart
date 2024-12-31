@@ -17,6 +17,7 @@ import 'package:eurogoods/features/onboarding/presentation/auth/otp_verification
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
 
+import 'package:eurogoods/features/profile/presentation/help_center.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
@@ -84,6 +85,7 @@ final class Routes {
   //<<--
 
   static const String favouriteScreen = '/favouriteScreen';
+  static const String helpCenter = '/helpCenter';
 
 }
 
@@ -200,6 +202,11 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: FavouriteScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => FavouriteScreen());
+
+      case Routes.helpCenter:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: HelpCenter(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => HelpCenter());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;
