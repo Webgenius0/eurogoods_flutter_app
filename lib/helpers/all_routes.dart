@@ -10,8 +10,13 @@ import 'package:eurogoods/features/my_cart/presentation/add_new_card.dart';
 import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
+
+import 'package:eurogoods/features/onboarding/presentation/auth/create_new_password/create_new_password_screen.dart';
+import 'package:eurogoods/features/onboarding/presentation/auth/otp_verification/otp_verification_screen.dart';
+
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
+
 import 'package:eurogoods/features/profile/presentation/help_center.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
@@ -20,6 +25,8 @@ import 'package:eurogoods/features/onboarding/presentation/auth/forgot_password/
 import 'package:eurogoods/features/onboarding/presentation/auth/sign_up/sign_up_screen.dart';
 import 'package:eurogoods/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../features/address/presentation/add_new_address_screen.dart';
 
 final class Routes {
   static final Routes _routes = Routes._internal();
@@ -68,8 +75,18 @@ final class Routes {
   static const String editProfile = '/editProfile';
   static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String searchContentScreen = '/searchContentScreen';
+
+
+  //otp-verify && new-pass
+  //--->>
+  static const String otpVerifyScreen = '/otp_verify_screen';
+  static const String createNewPassScreen = '/create_new_pass_screen';
+  static const String AddNewAddressScreen = '/Add_new_address_screen';
+  //<<--
+
   static const String favouriteScreen = '/favouriteScreen';
   static const String helpCenter = '/helpCenter';
+
 }
 
 final class RouteGenerator {
@@ -79,6 +96,26 @@ final class RouteGenerator {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      //otp-verify && new-pass
+      //--->>>
+      case Routes.otpVerifyScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: OtpVerificationScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => OtpVerificationScreen());
+
+      case Routes.createNewPassScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: CreateNewPasswordScreen(), settings: settings)
+            : CupertinoPageRoute(
+                builder: (context) => CreateNewPasswordScreen());
+      case Routes.AddNewAddressScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: AddNewAddressScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => AddNewAddressScreen());
+      //<<---
       case Routes.forgotPassword:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
