@@ -2,7 +2,7 @@
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/features/history/presentation/history_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
-import 'package:eurogoods/features/my_cart/presentation/my_order_screen.dart';
+import 'package:eurogoods/features/my_cart/presentation/my_cart_screen.dart';
 import 'package:eurogoods/features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<StatefulWidget> _screens = [
     HomeScreen(),
-    MyOrderScreen(),
+    MyCartScreen(),
     HistoryScreen(),
     ProfileScreen(),
   ];

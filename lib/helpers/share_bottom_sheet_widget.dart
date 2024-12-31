@@ -12,7 +12,7 @@ class ShareBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 24.h, left: 21.w, right: 21.w),
-      height: 352.h,
+      height: 300.h,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(28.r),
