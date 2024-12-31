@@ -138,16 +138,17 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                     height: 23.0,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(28.0),
-                                      color: Colors
-                                          .blue, // Replace with AppColors.c01779D
+                                      color: AppColors.c01779D,
+                                      // Replace with AppColors.c01779D
                                     ),
                                     child: Center(
                                       child: Text(
                                         "Add To Cart",
-                                        style: TextStyle(
-                                          fontSize: 10.0,
-                                          color: Colors
-                                              .white, // Replace with AppColors.cFFFFFF
+                                        style: TextFontStyle
+                                            .textStyle24c848585PoppinsW400
+                                            .copyWith(
+                                          fontSize: 10.sp,
+                                          color: AppColors.cFFFFFF,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),

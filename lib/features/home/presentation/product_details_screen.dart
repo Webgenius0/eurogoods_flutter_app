@@ -35,7 +35,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               color: AppColors.c17242B),
         ),
         leading: IconButton(
-
             onPressed: () => NavigationService.goBack,
             icon: SvgPicture.asset(
               Assets.icons.arrowBack,
@@ -53,12 +52,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
           ),
         ],
-
-          onPressed: () => NavigationService.goBack(),
-          icon: SvgPicture.asset(Assets.icons.arrowBack),
-        ),
-
+        // onPressed: () => NavigationService.goBack(),
+        // icon: SvgPicture.asset(Assets.icons.arrowBack),
       ),
+
       backgroundColor: AppColors.cF6F6F6,
       body: SafeArea(
         child: Column(
