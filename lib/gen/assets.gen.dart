@@ -222,6 +222,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/lemon.png
   AssetGenImage get lemon => const AssetGenImage('assets/images/lemon.png');
 
+  /// File path: assets/images/locationImage.png
+  AssetGenImage get locationImage =>
+      const AssetGenImage('assets/images/locationImage.png');
+
   /// File path: assets/images/map.png
   AssetGenImage get map => const AssetGenImage('assets/images/map.png');
 
@@ -250,6 +254,7 @@ class $AssetsImagesGen {
         dietCoke,
         glacierFreeze,
         lemon,
+        locationImage,
         map,
         profile,
         splash,

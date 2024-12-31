@@ -50,6 +50,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12.w),
       height: 55.h,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -81,7 +82,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               decoration: InputDecoration(
                 hintText: widget.hintText,
                 hintStyle:
-                    TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
+                    TextFontStyle.textStyle12c02344AMontserratW500.copyWith(
                   color: AppColors.c02344A,
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,

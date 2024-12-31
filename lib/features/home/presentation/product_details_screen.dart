@@ -21,8 +21,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //
       appBar: CustomAppBar(
-        isCentered: false,
+        isCentered: true,
         title: Text(
           'Product Details',
           style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
@@ -32,7 +33,22 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         ),
         leading: IconButton(
             onPressed: () => NavigationService.goBack,
-            icon: SvgPicture.asset(Assets.icons.arrowBack)),
+            icon: SvgPicture.asset(
+              Assets.icons.arrowBack,
+            )),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // Your action logic
+              print("Add button pressed");
+            },
+            icon: Icon(
+              Icons.add,
+              size: 17.5.sp, // Use sp for responsive font sizes
+              //color: AppColors.c000000,
+            ),
+          ),
+        ],
       ),
       backgroundColor: AppColors.cF6F6F6,
       body: SafeArea(
