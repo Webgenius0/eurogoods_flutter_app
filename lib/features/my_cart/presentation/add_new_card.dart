@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
