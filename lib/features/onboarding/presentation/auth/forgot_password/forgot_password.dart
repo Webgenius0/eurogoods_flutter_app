@@ -3,6 +3,8 @@ import 'package:eurogoods/common_widgets/custom_textformfield.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
+import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -82,8 +84,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       CustomButton(
                         text: "Submit",
                         onPressed: () {
-                          // NavigationService.navigateTo(
-                          //     Routes.createAccountScreen);
+                          NavigationService.navigateTo(Routes.otpVerifyScreen);
                         },
                         style: TextFontStyle.textStyle36c0E4F6MontserratW700
                             .copyWith(
