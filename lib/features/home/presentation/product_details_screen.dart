@@ -52,7 +52,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
           ),
         ],
-
         // onPressed: () => NavigationService.goBack(),
         // icon: SvgPicture.asset(Assets.icons.arrowBack),
       ),
