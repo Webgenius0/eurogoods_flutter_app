@@ -19,6 +19,7 @@ class AddNewCardScreen extends StatefulWidget {
 }
 
 class _AddNewCardScreenState extends State<AddNewCardScreen> {
+  int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +43,72 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomCardWidget(
-                backgroundColor: AppColors.cFFEEE3,
-                icon: Icon(Icons.abc),
-                borderRadius: 10.r,
-                borderColor: AppColors.cFF5F00,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = 0;
+                      });
+                    },
+                    child: CustomCardWidget(
+                      backgroundColor: _selectedIndex == 0
+                          ? AppColors.cFFEEE3
+                          : AppColors.cF5F6FA,
+                      icon: SvgPicture.asset(
+                        Assets.icons.bank,
+                        color: Colors.black,
+                      ),
+                      borderRadius: 10.r,
+                      borderColor: _selectedIndex == 0
+                          ? AppColors.cFF5F00
+                          : Colors.transparent,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = 1;
+                      });
+                    },
+                    child: CustomCardWidget(
+                      backgroundColor: _selectedIndex == 1
+                          ? AppColors.cFFEEE3
+                          : AppColors.cF5F6FA,
+                      icon: SvgPicture.asset(
+                        Assets.icons.bank,
+                        color: Colors.black,
+                      ),
+                      borderRadius: 10.r,
+                      borderColor: _selectedIndex == 1
+                          ? AppColors.cFF5F00
+                          : Colors.transparent,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = 2;
+                      });
+                    },
+                    child: CustomCardWidget(
+                      backgroundColor: _selectedIndex == 2
+                          ? AppColors.cFFEEE3
+                          : AppColors.cF5F6FA,
+                      icon: SvgPicture.asset(
+                        Assets.icons.bank,
+                        color: Colors.black,
+                      ),
+                      borderColor: _selectedIndex == 2
+                          ? AppColors.cFF5F00
+                          : Colors.transparent,
+                      borderRadius: 10.r,
+                    ),
+                  ),
+                ],
               ),
+              UIHelper.verticalSpace(24.h),
               //------------ Card Holder Information-------------
 
               Text(
@@ -210,7 +271,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                 ],
               ),
               UIHelper.verticalSpace(13.h),
-
+              UIHelper.verticalSpace(80.h),
               //----------------Add Card----------------
 
               Container(
@@ -231,7 +292,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
