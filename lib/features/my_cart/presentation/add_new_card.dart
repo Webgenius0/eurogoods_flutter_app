@@ -1,4 +1,5 @@
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
+import 'package:eurogoods/common_widgets/custom_card_widget.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
@@ -40,14 +41,14 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 50.h,
-                width: 100.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                //------------ Card Holder Information-------------
+              CustomCardWidget(
+                backgroundColor: AppColors.cFFEEE3,
+                icon: Icon(Icons.abc),
+                borderRadius: 10.r,
+                borderColor: AppColors.cFF5F00,
               ),
+              //------------ Card Holder Information-------------
+
               Text(
                 "Card Owner",
                 style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
