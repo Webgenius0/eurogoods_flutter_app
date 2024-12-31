@@ -1,3 +1,4 @@
+import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,7 +40,7 @@ class ProductCard extends StatelessWidget {
             top: 20,
             right: 18,
             child: SvgPicture.asset(
-              'assets/icons/love_bg.svg',
+              Assets.icons.loveBg,
               height: 16,
               width: 16,
             ),
