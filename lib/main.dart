@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:auto_animated/auto_animated.dart';
+import 'package:eurogoods/features/onboarding/presentation/auth/change_password/change_password_screen.dart';
+import 'package:eurogoods/features/onboarding/presentation/auth/change_password/help_center.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/di.dart';
@@ -84,9 +86,7 @@ class UtillScreenMobile extends StatelessWidget {
                 },
                 navigatorKey: NavigationService.navigatorKey,
                 onGenerateRoute: RouteGenerator.generateRoute,
-                home: Loading())
-            // home: Loading()),
-            );
+                home: Loading()));
       },
     );
   }
