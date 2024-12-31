@@ -96,9 +96,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/love_bg.svg
   String get loveBg => 'assets/icons/love_bg.svg';
 
-  /// File path: assets/icons/master_card.svg
-  String get masterCard => 'assets/icons/master_card.svg';
-
   /// File path: assets/icons/minus_with_border.svg
   String get minusWithBorder => 'assets/icons/minus_with_border.svg';
 
@@ -116,9 +113,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/payment.svg
   String get payment => 'assets/icons/payment.svg';
-
-  /// File path: assets/icons/paypal.svg
-  String get paypal => 'assets/icons/paypal.svg';
 
   /// File path: assets/icons/plash_icon.svg
   String get plashIcon => 'assets/icons/plash_icon.svg';
@@ -171,14 +165,12 @@ class $AssetsIconsGen {
         logOut,
         logWithoutBg,
         loveBg,
-        masterCard,
         minusWithBorder,
         moreVertical,
         notification,
         orderSuccess,
         password,
         payment,
-        paypal,
         plashIcon,
         plus,
         plusWithBorder,
