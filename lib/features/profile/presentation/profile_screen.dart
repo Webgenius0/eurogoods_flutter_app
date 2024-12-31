@@ -67,10 +67,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
           ),
           UIHelper.verticalSpace(20.h),
-          CustomListtileWidget(
-              leftIconPath: Assets.icons.locationOn,
-              rightIconPath: Assets.icons.arrowRight,
-              text: "Address"),
+          GestureDetector(
+            onTap: () =>
+                NavigationService.navigateTo(Routes.AddNewAddressScreen),
+            child: CustomListtileWidget(
+                leftIconPath: Assets.icons.locationOn,
+                rightIconPath: Assets.icons.arrowRight,
+                text: "Address"),
+          ),
           UIHelper.verticalSpace(20.h),
           GestureDetector(
             onTap: () =>
@@ -99,10 +103,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               rightIconPath: Assets.icons.arrowRight,
               text: "Payment"),
           UIHelper.verticalSpace(20.h),
-          CustomListtileWidget(
-              leftIconPath: Assets.icons.favorite,
-              rightIconPath: Assets.icons.arrowRight,
-              text: "Favorite"),
+          GestureDetector(
+            onTap: () => NavigationService.navigateTo(Routes.favouriteScreen),
+            child: CustomListtileWidget(
+                leftIconPath: Assets.icons.favorite,
+                rightIconPath: Assets.icons.arrowRight,
+                text: "Favorite"),
+          ),
           UIHelper.verticalSpace(20.h),
           CustomListtileWidget(
             isLogoutText: true,
