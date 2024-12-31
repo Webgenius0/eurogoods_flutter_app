@@ -5,13 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart'; // Assuming you're 
 class CustomHorizontalDivider extends StatelessWidget {
   final double thickness;
   final double width;
-  final Color color;
 
   const CustomHorizontalDivider({
     super.key,
     this.thickness = 1.0,
     this.width = double.infinity,
-    this.color = AppColors.c02344A,
   });
 
   @override
@@ -19,7 +17,7 @@ class CustomHorizontalDivider extends StatelessWidget {
     return Container(
       width: width,
       height: thickness.h, // Using `flutter_screenutil` for responsive height
-      color: color,
+      color: AppColors.c17242B66.withOpacity(0.4),
     );
   }
 }
