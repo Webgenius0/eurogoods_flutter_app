@@ -1,6 +1,7 @@
+import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/common_widgets/custom_horizontal_divider.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
-import 'package:eurogoods/features/home/presentation/product_details_screen.dart';
+import 'package:eurogoods/features/home/widgets/categories_button.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
@@ -32,8 +33,6 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   final List<String> previousSearches = [
-    "Harry Potter and the Half Blood Prince",
-    "Harry Potter and the Half Blood Prince",
     "Harry Potter and the Half Blood Prince",
     "Harry Potter and the Half Blood Prince",
     "Harry Potter and the Half Blood Prince",
@@ -83,10 +82,18 @@ class _SearchScreenState extends State<SearchScreen> {
                             },
                             child: SvgPicture.asset(
                               Assets.icons.searchNormal,
-                              height: 16.w,
-                              width: 16.w,
                             ),
                           ),
+                          UIHelper.horizontalSpace(4.h),
+                          // Text(
+                          //   "Coca-Cola",
+                          //   style: TextFontStyle.textStyle24c848585PoppinsW400
+                          //       .copyWith(
+                          //           fontWeight: FontWeight.w400,
+                          //           color: AppColors.c848585.withOpacity(0.7),
+                          //           fontSize: 14),
+                          //   overflow: TextOverflow.ellipsis,
+                          // ),
                           Expanded(
                             child: TextField(
                               controller: _controller, // Attach the controller
@@ -98,7 +105,185 @@ class _SearchScreenState extends State<SearchScreen> {
                             ),
                           ),
                           IconButton(
-                            onPressed: _removeLastCharacter,
+                            onPressed: () {
+                              showModalBottomSheet(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(28.r),
+                                    topRight: Radius.circular(28.r),
+                                  ),
+                                ),
+                                context: context,
+                                builder: (context) {
+                                  return SingleChildScrollView(
+                                    child: Container(
+                                      height: 800.h,
+                                      decoration: BoxDecoration(
+                                        color: AppColors.cFFFFFF,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(28.r),
+                                          topRight: Radius.circular(28.r),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 21.w),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            UIHelper.verticalSpace(61.h),
+                                            Align(
+                                              alignment: Alignment.center,
+                                              child: Text("Sort & Filter",
+                                                  style: TextFontStyle
+                                                      .textStyle24c848585PoppinsW400
+                                                      .copyWith(
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: AppColors
+                                                              .c17242B)),
+                                            ),
+                                            UIHelper.verticalSpace(20.h),
+                                            const CustomHorizontalDivider(),
+                                            UIHelper.verticalSpace(16.h),
+                                            Text("Categories",
+                                                style: TextFontStyle
+                                                    .textStyle24c848585PoppinsW400
+                                                    .copyWith(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColors.c17242B)),
+                                            Wrap(
+                                              spacing:
+                                                  6.0, // Horizontal spacing
+                                              runSpacing:
+                                                  1.0, // Vertical spacing
+                                              children: [
+                                                categoriesButton('All',
+                                                    selected: true),
+                                                categoriesButton('Special'),
+                                                categoriesButton('Water'),
+                                                categoriesButton('Coca-Cola'),
+                                                categoriesButton(
+                                                    'Energy Drinks'),
+                                              ],
+                                            ),
+                                            UIHelper.verticalSpace(21.h),
+                                            Text("Sort By",
+                                                style: TextFontStyle
+                                                    .textStyle24c848585PoppinsW400
+                                                    .copyWith(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColors.c17242B)),
+                                            UIHelper.verticalSpace(16.h),
+                                            Wrap(
+                                              spacing:
+                                                  4.0, // Horizontal spacing
+                                              runSpacing:
+                                                  1.0, // Vertical spacing
+                                              children: [
+                                                categoriesButton('All',
+                                                    selected: true),
+                                                categoriesButton('Special'),
+                                                categoriesButton('Water'),
+                                                categoriesButton('Coca-Cola'),
+                                              ],
+                                            ),
+                                            UIHelper.verticalSpace(21.h),
+                                            Text("Size In Litter",
+                                                style: TextFontStyle
+                                                    .textStyle24c848585PoppinsW400
+                                                    .copyWith(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColors.c17242B)),
+                                            UIHelper.verticalSpace(16.h),
+                                            Wrap(
+                                              spacing:
+                                                  4.0, // Horizontal spacing
+                                              runSpacing:
+                                                  1.0, // Vertical spacing
+                                              children: [
+                                                categoriesButton('All',
+                                                    selected: true),
+                                                categoriesButton('Special'),
+                                                categoriesButton('Water'),
+                                                categoriesButton('Coca-Cola'),
+                                              ],
+                                            ),
+                                            UIHelper.verticalSpace(21.h),
+                                            Text("Case in Quantity",
+                                                style: TextFontStyle
+                                                    .textStyle24c848585PoppinsW400
+                                                    .copyWith(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColors.c17242B)),
+                                            Wrap(
+                                              spacing:
+                                                  4.0, // Horizontal spacing
+                                              runSpacing:
+                                                  1.0, // Vertical spacing
+                                              children: [
+                                                categoriesButton('8',
+                                                    selected: true),
+                                                categoriesButton('12'),
+                                                categoriesButton('24'),
+                                              ],
+                                            ),
+                                            UIHelper.verticalSpace(50.h),
+                                            Row(
+                                              children: [
+                                                CustomButton(
+                                                  text: "Submit",
+                                                  onPressed: () {
+                                                    // NavigationService.navigateTo(
+                                                    //     Routes.createAccountScreen);
+                                                  },
+                                                  style: TextFontStyle
+                                                      .textStyle36c0E4F6MontserratW700
+                                                      .copyWith(
+                                                          color:
+                                                              AppColors.cFFFFFF,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                ),
+                                                CustomButton(
+                                                  text: "Submit",
+                                                  onPressed: () {
+                                                    // NavigationService.navigateTo(
+                                                    //     Routes.createAccountScreen);
+                                                  },
+                                                  style: TextFontStyle
+                                                      .textStyle36c0E4F6MontserratW700
+                                                      .copyWith(
+                                                          color:
+                                                              AppColors.cFFFFFF,
+                                                          fontSize: 20.sp,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             icon: SvgPicture.asset(Assets.icons.filterBlack),
                             iconSize: 20,
                           ),
@@ -162,6 +347,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       .textStyle24c848585PoppinsW400
                                       .copyWith(
                                           fontWeight: FontWeight.w400,
+                                          color: AppColors.c848585,
                                           fontSize: 14),
                                   overflow: TextOverflow.ellipsis,
                                 ),
