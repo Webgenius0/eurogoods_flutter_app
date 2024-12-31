@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/common_widgets/custom_horizontal_divider.dart';
 import 'package:eurogoods/constants/text_font_style.dart';

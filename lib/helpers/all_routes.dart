@@ -10,6 +10,7 @@ import 'package:eurogoods/features/my_cart/presentation/add_new_card.dart';
 import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
+import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
@@ -63,6 +64,7 @@ final class Routes {
   static const String searchScreen = '/searchScreen';
   static const String saveCard = '/saveCard';
   static const String addNewCardScreen = '/addNewCardScreen';
+  static const String editProfile = '/editProfile';
   static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String searchContentScreen = '/searchContentScreen';
   static const String favouriteScreen = '/favouriteScreen';
@@ -140,6 +142,11 @@ final class RouteGenerator {
                 widget: AddNewCardScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => AddNewCardScreen());
 
+      case Routes.editProfile:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: EditProfileScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => EditProfileScreen());
       case Routes.orderDetailsScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(

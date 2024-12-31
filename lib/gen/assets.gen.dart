@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/categories.svg
   String get categories => 'assets/icons/categories.svg';
 
+  /// File path: assets/icons/change_password.svg
+  String get changePassword => 'assets/icons/change_password.svg';
+
   /// File path: assets/icons/cross_icon.svg
   String get crossIcon => 'assets/icons/cross_icon.svg';
 
@@ -86,6 +89,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/location_change.svg
   String get locationChange => 'assets/icons/location_change.svg';
+
+  /// File path: assets/icons/location_on.svg
+  String get locationOn => 'assets/icons/location_on.svg';
 
   /// File path: assets/icons/log_out.svg
   String get logOut => 'assets/icons/log_out.svg';
@@ -144,6 +150,7 @@ class $AssetsIconsGen {
         bank,
         cart,
         categories,
+        changePassword,
         crossIcon,
         defaultAddress,
         delete,
@@ -162,6 +169,7 @@ class $AssetsIconsGen {
         imageforward,
         location,
         locationChange,
+        locationOn,
         logOut,
         logWithoutBg,
         loveBg,
@@ -228,6 +236,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
+  /// File path: assets/images/profile_image.jpg
+  AssetGenImage get profileImage =>
+      const AssetGenImage('assets/images/profile_image.jpg');
+
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -252,6 +264,7 @@ class $AssetsImagesGen {
         lemon,
         map,
         profile,
+        profileImage,
         splash,
         sprite,
         vitaminWater

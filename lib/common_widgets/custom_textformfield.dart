@@ -74,11 +74,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           UIHelper.horizontalSpace(3.15.w),
           Expanded(
             child: TextFormField(
+          
+              
               controller: widget.controller,
               keyboardType: widget.keyboardType,
               obscureText: _obscureText,
               validator: widget.validator,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: widget.prefixIcon != null? 0: 5.w),
                 hintText: widget.hintText,
                 hintStyle:
                     TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
