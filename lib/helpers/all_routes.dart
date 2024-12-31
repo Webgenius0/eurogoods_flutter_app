@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:eurogoods/features/history/presentation/order_details.dart';
 import 'package:eurogoods/features/home/presentation/all_prodcut_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
 import 'package:eurogoods/features/home/presentation/product_details_screen.dart';
@@ -60,6 +61,7 @@ final class Routes {
   static const String searchScreen = '/searchScreen';
   static const String saveCard = '/saveCard';
   static const String addNewCardScreen = '/addNewCardScreen';
+  static const String orderDetailsScreen = '/orderDetailsScreen';
 }
 
 final class RouteGenerator {
@@ -133,6 +135,12 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: AddNewCardScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => AddNewCardScreen());
+
+      case Routes.orderDetailsScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: OrderDetailsScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => OrderDetailsScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;
