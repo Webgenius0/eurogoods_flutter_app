@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:eurogoods/features/history/presentation/order_details.dart';
 import 'package:eurogoods/features/home/presentation/all_prodcut_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
 import 'package:eurogoods/features/home/presentation/product_details_screen.dart';
@@ -10,6 +11,8 @@ import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
+import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
+import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
 import 'package:eurogoods/features/onboarding/presentation/auth/forgot_password/forgot_password.dart';
@@ -62,6 +65,9 @@ final class Routes {
   static const String saveCard = '/saveCard';
   static const String addNewCardScreen = '/addNewCardScreen';
   static const String editProfile = '/editProfile';
+  static const String orderDetailsScreen = '/orderDetailsScreen';
+  static const String searchContentScreen = '/searchContentScreen';
+  static const String favouriteScreen = '/favouriteScreen';
 }
 
 final class RouteGenerator {
@@ -141,6 +147,22 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: EditProfileScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => EditProfileScreen());
+      case Routes.orderDetailsScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: OrderDetailsScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => OrderDetailsScreen());
+      case Routes.searchContentScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: SearchContentScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => SearchContentScreen());
+
+      case Routes.favouriteScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: FavouriteScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => FavouriteScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;

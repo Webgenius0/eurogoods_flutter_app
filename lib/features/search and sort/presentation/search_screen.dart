@@ -6,6 +6,7 @@ import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/features/home/widgets/categories_button.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +120,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 builder: (context) {
                                   return SingleChildScrollView(
                                     child: Container(
-                                      height: 800.h,
+                                      height: 750.h,
                                       decoration: BoxDecoration(
                                         color: AppColors.cFFFFFF,
                                         borderRadius: BorderRadius.only(
@@ -134,7 +135,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            UIHelper.verticalSpace(61.h),
+                                            UIHelper.verticalSpace(41.h),
+                                            Center(
+                                              child: Container(
+                                                width: 48.h,
+                                                color: AppColors.c17242B,
+                                                height: 3.h,
+                                              ),
+                                            ),
+                                            UIHelper.verticalSpace(20.h),
                                             Align(
                                               alignment: Alignment.center,
                                               child: Text("Sort & Filter",
@@ -191,11 +200,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                               runSpacing:
                                                   1.0, // Vertical spacing
                                               children: [
-                                                categoriesButton('All',
+                                                categoriesButton('Recent'),
+                                                categoriesButton('Popular',
                                                     selected: true),
-                                                categoriesButton('Special'),
-                                                categoriesButton('Water'),
-                                                categoriesButton('Coca-Cola'),
+                                                categoriesButton('High Price'),
+                                                categoriesButton('Low Price'),
                                               ],
                                             ),
                                             UIHelper.verticalSpace(21.h),
@@ -215,11 +224,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                               runSpacing:
                                                   1.0, // Vertical spacing
                                               children: [
-                                                categoriesButton('All',
+                                                categoriesButton('1 Litter'),
+                                                categoriesButton('2 Litter',
                                                     selected: true),
-                                                categoriesButton('Special'),
-                                                categoriesButton('Water'),
-                                                categoriesButton('Coca-Cola'),
+                                                categoriesButton('1.5 Litter'),
+                                                categoriesButton('700 ml'),
                                               ],
                                             ),
                                             UIHelper.verticalSpace(21.h),
@@ -246,36 +255,76 @@ class _SearchScreenState extends State<SearchScreen> {
                                             ),
                                             UIHelper.verticalSpace(50.h),
                                             Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                CustomButton(
-                                                  text: "Submit",
-                                                  onPressed: () {
-                                                    // NavigationService.navigateTo(
-                                                    //     Routes.createAccountScreen);
-                                                  },
-                                                  style: TextFontStyle
-                                                      .textStyle36c0E4F6MontserratW700
-                                                      .copyWith(
-                                                          color:
-                                                              AppColors.cFFFFFF,
-                                                          fontWeight:
-                                                              FontWeight.w600),
+                                                Container(
+                                                  height: 40.h,
+                                                  width: 120,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              47.r),
+                                                      color: AppColors.cF5F5F5),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Reset",
+                                                      style: TextFontStyle
+                                                          .textStyle24c848585PoppinsW400
+                                                          .copyWith(
+                                                              color: AppColors
+                                                                  .c17242B,
+                                                              fontSize: 16.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500),
+                                                    ),
+                                                  ),
                                                 ),
-                                                CustomButton(
-                                                  text: "Submit",
-                                                  onPressed: () {
-                                                    // NavigationService.navigateTo(
-                                                    //     Routes.createAccountScreen);
+                                                InkWell(
+                                                  onTap: () {
+                                                    NavigationService
+                                                        .navigateTo(Routes
+                                                            .searchContentScreen);
                                                   },
-                                                  style: TextFontStyle
-                                                      .textStyle36c0E4F6MontserratW700
-                                                      .copyWith(
-                                                          color:
-                                                              AppColors.cFFFFFF,
-                                                          fontSize: 20.sp,
-                                                          fontWeight:
-                                                              FontWeight.w600),
-                                                ),
+                                                  child: Container(
+                                                    height: 40.h,
+                                                    width: 120,
+                                                    decoration: BoxDecoration(
+                                                        gradient:
+                                                            const LinearGradient(
+                                                          colors: [
+                                                            Color(
+                                                                0xFF39CDFD), // Gradient color 1
+                                                            Color(
+                                                                0xFF0680A6), // Gradient color 2
+                                                          ],
+                                                          begin: Alignment
+                                                              .topLeft, // Gradient start
+                                                          end: Alignment
+                                                              .bottomRight, // Gradient end
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(47.r),
+                                                        color:
+                                                            AppColors.cF5F5F5),
+                                                    child: Center(
+                                                      child: Text(
+                                                        "Apply",
+                                                        style: TextFontStyle
+                                                            .textStyle24c848585PoppinsW400
+                                                            .copyWith(
+                                                                color: AppColors
+                                                                    .cFFFFFF,
+                                                                fontSize: 16.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
                                               ],
                                             )
                                           ],

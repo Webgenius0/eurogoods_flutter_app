@@ -3,6 +3,7 @@ import 'package:eurogoods/common_widgets/custom_productcard.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -111,27 +112,32 @@ class _AllProdcutScreenState extends State<AllProdcutScreen> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
-                  childAspectRatio: 0.72,
+                  childAspectRatio: 0.62,
                 ),
                 itemCount: beverageList.length,
                 itemBuilder: (context, idx) {
                   final product = beverageList[idx];
-                  return ProductCard(
-                    imagePath: product['image'],
-                    productName: product['name'],
-                    productCode: product['productId'],
-                    productQuantity: product['quantity'].toString(),
-                    isSwitchedToQuantityCount:
-                        false, // Set this based on your logic
-                    onAddPressed: () {
-                      // Add action for adding product
+                  return InkWell(
+                    onTap: () {
+                      NavigationService.navigateTo(Routes.productDetailsScreen);
                     },
-                    onIncrease: () {
-                      // Action for increasing quantity
-                    },
-                    onDecrease: () {
-                      // Action for decreasing quantity
-                    },
+                    child: ProductCard(
+                      imagePath: product['image'],
+                      productName: product['name'],
+                      productCode: product['productId'],
+                      productQuantity: product['quantity'].toString(),
+                      isSwitchedToQuantityCount:
+                          false, // Set this based on your logic
+                      onAddPressed: () {
+                        // Add action for adding product
+                      },
+                      onIncrease: () {
+                        // Action for increasing quantity
+                      },
+                      onDecrease: () {
+                        // Action for decreasing quantity
+                      },
+                    ),
                   );
                 },
               ),
