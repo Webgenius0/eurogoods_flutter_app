@@ -10,6 +10,7 @@ import 'package:eurogoods/features/my_cart/presentation/add_new_card.dart';
 import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
+import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
@@ -64,7 +65,7 @@ final class Routes {
   static const String addNewCardScreen = '/addNewCardScreen';
   static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String searchContentScreen = '/searchContentScreen';
-
+  static const String favouriteScreen = '/favouriteScreen';
 }
 
 final class RouteGenerator {
@@ -149,6 +150,12 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: SearchContentScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => SearchContentScreen());
+
+      case Routes.favouriteScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: FavouriteScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => FavouriteScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;
