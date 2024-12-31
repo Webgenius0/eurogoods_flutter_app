@@ -1,3 +1,5 @@
+import 'package:eurogoods/helpers/all_routes.dart';
+import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -87,7 +89,9 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                       if (value.length < 8) {
                         return 'Password must be at least 8 characters long'.tr;
                       }
-                      if(newPassController.text.isNotEmpty && newPassController.text.trim() == confirmNewPassController.text.trim()){
+                      if (newPassController.text.isNotEmpty &&
+                          newPassController.text.trim() ==
+                              confirmNewPassController.text.trim()) {
                         return 'Confirm pass not match new password';
                       }
                       // if (value.trim() !=
@@ -100,8 +104,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                 CustomButton(
                   text: "Continue",
                   onPressed: () {
-                    // NavigationService.navigateTo(
-                    //     Routes.createAccountScreen);
+                    NavigationService.navigateTo(Routes.bottomNavBar);
                   },
                   style: TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
                       color: AppColors.cFFFFFF,

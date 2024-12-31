@@ -76,7 +76,6 @@ final class Routes {
   static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String searchContentScreen = '/searchContentScreen';
 
-
   //otp-verify && new-pass
   //--->>
   static const String otpVerifyScreen = '/otp_verify_screen';
@@ -86,7 +85,6 @@ final class Routes {
 
   static const String favouriteScreen = '/favouriteScreen';
   static const String helpCenter = '/helpCenter';
-
 }
 
 final class RouteGenerator {
@@ -202,6 +200,11 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: FavouriteScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => FavouriteScreen());
+
+      case Routes.helpCenter:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: HelpCenter(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => HelpCenter());
 
       case Routes.helpCenter:
         return Platform.isAndroid
