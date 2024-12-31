@@ -15,6 +15,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/add_address.svg
   String get addAddress => 'assets/icons/add_address.svg';
 
+  /// File path: assets/icons/add_new_card.svg
+  String get addNewCard => 'assets/icons/add_new_card.svg';
+
   /// File path: assets/icons/arrow_back.svg
   String get arrowBack => 'assets/icons/arrow_back.svg';
 
@@ -129,6 +132,7 @@ class $AssetsIconsGen {
   /// List of all assets
   List<String> get values => [
         addAddress,
+        addNewCard,
         arrowBack,
         arrowRight,
         bank,

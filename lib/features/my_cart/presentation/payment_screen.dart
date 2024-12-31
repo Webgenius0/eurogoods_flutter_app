@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:eurogoods/common_widgets/add_new_card.dart';
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
+import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
+import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +27,66 @@ class _PaymentScreenState extends State<PaymentScreen> {
   String expiryDate = "XX/XX";
   String cvv = "";
 
+  // Method to show the custom alert dialog
+  void showCustomAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        Future.delayed(const Duration(seconds: 1), () {
+          // NavigationService.navigateTo(Routes.navigationScreen);
+        });
+        return Stack(
+          children: [
+            // Blurred background
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.black.withOpacity(0.2), // Optional dark overlay
+              ),
+            ),
+            Center(
+              child: Container(
+                width: 342.w, // Adjust width for responsiveness
+                height: 486.h, // Adjust height for responsiveness
+                decoration: BoxDecoration(
+                  color: AppColors.cFFFFFF,
+                  borderRadius: BorderRadius.circular(27),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(Assets.icons.bank),
+                    Text(
+                      "Reset Password Successful!",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(decoration: TextDecoration.none),
+                    ),
+                    UIHelper.verticalSpace(20.h),
+                    Text(
+                      "Your password has been restored\nPlease wait a moment, we are\npreparing for you...",
+                      textAlign: TextAlign.center,
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(decoration: TextDecoration.none),
+                    ),
+                    UIHelper.verticalSpace(20.h),
+                    TextButton(
+                        onPressed: () {
+                          NavigationService.goBack;
+                        },
+                        child: Text('View Order')),
+                    // const CircularProgressIndicator(),
+                    UIHelper.verticalSpace(40.h),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +104,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             icon: SvgPicture.asset(Assets.icons.arrowBack)),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: 21.w),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -142,51 +207,70 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ),
 
-              UIHelper.verticalSpace(24.h),
+              UIHelper.verticalSpace(15.h),
 
-              // Card Holder Name Input
-
-              Text(
-                "Card Holder Name",
-                style: TextFontStyle.textStyle24c848585PoppinsW400
-                    .copyWith(fontSize: 16.sp),
-              ),
-              UIHelper.verticalSpace(10.h),
-
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Ex: Saklain Sarowor",
-                  hintStyle: TextFontStyle.textStyle24c848585PoppinsW400,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColors.c926BF4.withOpacity(0.5),
-                    ), // Border when not focused
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: const BorderSide(color: AppColors.c926BF4)),
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    cardHolderName = value;
-                  });
-                },
-              ),
-
+              //------------confirm payment-------------
+              AddNewCard(
+                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: AppColors.c01779D,
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500),
+                  text: "Confirm Payment",
+                  onPressed: () {
+                    //NavigationService.navigateTo(Routes.paymentScreen);
+                  }),
               UIHelper.verticalSpace(20.h),
+
+              //------------ Card Holder Information-------------
+              Text(
+                "Card Owner",
+                style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.c000000),
+              ),
+              UIHelper.verticalSpace(8.h),
+
+              Container(
+                height: 38.h,
+                alignment: Alignment.center,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Jane Cooper",
+                    hintStyle: TextFontStyle.textStyle24c848585PoppinsW400,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColors.c926BF4.withOpacity(0.5),
+                      ), // Border when not focused
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: const BorderSide(color: AppColors.c926BF4)),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      cardHolderName = value;
+                    });
+                  },
+                ),
+              ),
+
+              UIHelper.verticalSpace(12.h),
 
               Text(
                 "Card Number",
-                style: TextFontStyle.textStyle24c848585PoppinsW400
-                    .copyWith(fontSize: 16.sp),
+                style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.c000000),
               ),
 
-              UIHelper.verticalSpace(10.h),
+              UIHelper.verticalSpace(8.h),
               // Card Number Input
               TextFormField(
                 decoration: InputDecoration(
-                  hintText: "Ex: **** **** **** 3947",
+                  hintText: "5254 7634 8734 7690",
                   hintStyle: TextFontStyle.textStyle24c848585PoppinsW400,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -223,14 +307,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "CVV",
+                        "EXP",
                         style: TextFontStyle.textStyle24c848585PoppinsW400
-                            .copyWith(fontSize: 16.sp),
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
                       ),
-                      UIHelper.verticalSpace(10.h),
+                      UIHelper.verticalSpace(8.h),
                       TextFormField(
                         decoration: InputDecoration(
-                          hintText: "Ex: 1337",
+                          hintText: "24/24",
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.r),
                               borderSide:
@@ -252,22 +339,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       ),
                     ],
                   )),
-                  UIHelper.horizontalSpace(16.h),
+                  UIHelper.horizontalSpace(13.h),
                   Expanded(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Expiration Date",
+                        "CVV",
                         style: TextFontStyle.textStyle24c848585PoppinsW400
-                            .copyWith(fontSize: 16.sp),
+                            .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.c000000),
                       ),
-                      UIHelper.verticalSpace(10.h),
+                      UIHelper.verticalSpace(8.h),
                       TextField(
                         decoration: InputDecoration(
                           // labelText: "Expiration Date",
-                          hintText: "03/29",
+                          hintText: "7763",
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.r),
                               borderSide:
@@ -292,25 +382,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   )),
                 ],
               ),
+              UIHelper.verticalSpace(32.h),
 
-              UIHelper.verticalSpace(119.h),
-              // Add Button
-              ElevatedButton(
-                onPressed: () {
-                  // Handle Add Card Action
-                  //NavigationService.navigateTo(Routes.selectPaymentTwoScreen);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.c6636EE,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        60.r), // Adjust the radius as needed
-                  ),
-                ),
-                child: const Text(
-                  "Add",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+              //----------------Confirm Payment----------------
+              Container(
+                height: 55.h,
+                width: double.infinity,
+                child: CustomButton(
+                  text: "Confirm Payment",
+                  onPressed: () =>
+                      NavigationService.navigateTo(Routes.paymentScreen),
+                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                      color: AppColors.cFFFFFF,
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ],

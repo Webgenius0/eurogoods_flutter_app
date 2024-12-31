@@ -8,17 +8,18 @@ import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:eurogoods/helpers/share_bottom_sheet_widget.dart';
 import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class MyOrderScreen extends StatefulWidget {
-  const MyOrderScreen({super.key});
+class MyCartScreen extends StatefulWidget {
+  const MyCartScreen({super.key});
 
   @override
-  State<MyOrderScreen> createState() => _MyOrderScreenState();
+  State<MyCartScreen> createState() => _MyCartScreenState();
 }
 
-class _MyOrderScreenState extends State<MyOrderScreen> {
+class _MyCartScreenState extends State<MyCartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,8 +43,6 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
         ),
         child: Column(
           children: [
-            UIHelper.verticalSpace(20.h),
-
             //------------list of order items-------------
             Expanded(
                 child: ListView.builder(
@@ -241,53 +240,109 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                 );
               },
             )),
-            UIHelper.verticalSpace(10.h),
 
-            //------------totall price-------------
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //------------totall amount-------------
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
+                Text(
+                  'Total Amount',
+                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                    color: AppColors.c17242B,
+                    height: 2.4,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.sp,
+                  ),
+                ),
+                UIHelper.verticalSpace(5.h),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Total Price',
-                      style:
-                          TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                        color: AppColors.c000000,
-                        height: 1.8,
-                        fontSize: 14.sp,
-                      ),
-                    ),
+                    Text('Amount:',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                          color: AppColors.c000000,
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        )),
                     Text('\$458',
                         style: TextFontStyle.textStyle24c848585PoppinsW400
                             .copyWith(
                           color: AppColors.c000000,
                           fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                        )),
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        ))
                   ],
                 ),
-                UIHelper.horizontalSpace(21.w),
-                Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    child: CustomButton(
-                      text: "Checkout Now",
-                      onPressed: () =>
-                          NavigationService.navigateTo(Routes.checkoutScreen),
-                      style: TextFontStyle.textStyle36c0E4F6MontserratW700
-                          .copyWith(
-                              color: AppColors.cFFFFFF,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Shiping:',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                          color: AppColors.c000000,
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        )),
+                    Text('\$42',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                          color: AppColors.c000000,
+                          fontWeight: FontWeight.w500,
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        ))
+                  ],
+                ),
+                UIHelper.verticalSpace(5.h),
+                Dash(
+                  direction: Axis.horizontal,
+                  length: 365,
+                  dashLength: 5,
+                  dashThickness: 1,
+                  dashColor: Colors.black,
+                ),
+                UIHelper.verticalSpace(10.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total Cost',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                          color: AppColors.c000000,
+                          fontWeight: FontWeight.w400,
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        )),
+                    Text('\$500',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                          color: AppColors.c000000,
+                          fontWeight: FontWeight.w500,
+                          height: 2.0.sp,
+                          fontSize: 14.sp,
+                        ))
+                  ],
+                ),
+                UIHelper.verticalSpace(5.h),
               ],
             ),
-            UIHelper.verticalSpace(46.h)
+            //------------Checkout Button-------------
+            Container(
+              width: double.infinity,
+              child: CustomButton(
+                text: "Procced to checkout",
+                onPressed: () =>
+                    NavigationService.navigateTo(Routes.checkoutScreen),
+                style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                    color: AppColors.cFFFFFF,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            UIHelper.verticalSpace(15.h)
           ],
         ),
       ),
