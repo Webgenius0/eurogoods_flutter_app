@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:eurogoods/common_widgets/custom_productcard.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/features/home/widgets/categories_button.dart';
@@ -80,10 +79,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(10),
-                              child: SvgPicture.asset(
-                                Assets.icons.search,
-                                // height: 16.h,
-                                // width: 16.h,
+                              child: InkWell(
+                                onTap: () {
+                                  NavigationService.navigateTo(
+                                      Routes.searchScreen);
+                                },
+                                child: SvgPicture.asset(
+                                  Assets.icons.search,
+                                  // height: 16.h,
+                                  // width: 16.h,
+                                ),
                               ),
                             ),
                             Expanded(
@@ -170,22 +175,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Padding(
                       padding: EdgeInsets.only(
                           right: 20.w), // Add horizontal spacing
-                      child: ProductCard(
-                        imagePath: product['image'],
-                        productName: product['name'],
-                        productCode: product['productId'],
-                        productQuantity: product['quantity'].toString(),
-                        isSwitchedToQuantityCount:
-                            false, // Set this based on your logic
-                        onAddPressed: () {
-                          // Add action for adding product
+                      child: InkWell(
+                        onTap: () {
+                          NavigationService.navigateTo(
+                              Routes.productDetailsScreen);
                         },
-                        onIncrease: () {
-                          // Action for increasing quantity
-                        },
-                        onDecrease: () {
-                          // Action for decreasing quantity
-                        },
+                        child: ProductCard(
+                          imagePath: product['image'],
+                          productName: product['name'],
+                          productCode: product['productId'],
+                          productQuantity: product['quantity'].toString(),
+                          isSwitchedToQuantityCount:
+                              false, // Set this based on your logic
+                          onAddPressed: () {
+                            // Add action for adding product
+                          },
+                          onIncrease: () {
+                            // Action for increasing quantity
+                          },
+                          onDecrease: () {
+                            // Action for decreasing quantity
+                          },
+                        ),
                       ),
                     );
                   },
