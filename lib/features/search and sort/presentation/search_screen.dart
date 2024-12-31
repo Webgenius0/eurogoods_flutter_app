@@ -43,6 +43,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.cFFFFFF,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.h),
@@ -69,9 +70,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: Container(
                       height: 40.h,
                       decoration: BoxDecoration(
-                        color: AppColors.c926BF4.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(8.r),
-                        border: Border.all(color: AppColors.c926BF4, width: 1),
+                        border: Border.all(color: AppColors.c01779D, width: 1),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +99,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                           IconButton(
                             onPressed: _removeLastCharacter,
-                            icon: SvgPicture.asset(Assets.icons.crossIcon),
+                            icon: SvgPicture.asset(Assets.icons.filterBlack),
                             iconSize: 20,
                           ),
                         ],
@@ -113,24 +113,30 @@ class _SearchScreenState extends State<SearchScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Previous search",
-                    style: TextFontStyle.textStyle24c848585PoppinsW400
-                        .copyWith(fontSize: 16),
+                    "Recent",
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.c000000),
                   ),
-                  IconButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       setState(() {
                         previousSearches.clear();
                       });
                     },
-                    icon: Icon(
-                      Icons.clear,
-                      color: AppColors.c743DFF,
-                      size: 25.w,
+                    child: Text(
+                      "Clear All",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.c000000),
                     ),
                   ),
                 ],
               ),
+              UIHelper.verticalSpace(12.h),
               const CustomHorizontalDivider(),
               Expanded(
                 child: previousSearches.isEmpty
@@ -160,8 +166,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 trailing: IconButton(
-                                  icon: const Icon(Icons.clear,
-                                      color: AppColors.c000000),
+                                  icon:
+                                      SvgPicture.asset(Assets.icons.crossIcon),
                                   onPressed: () {
                                     setState(() {
                                       previousSearches.removeAt(index);

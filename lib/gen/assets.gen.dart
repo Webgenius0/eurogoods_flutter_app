@@ -60,6 +60,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/filter.svg
   String get filter => 'assets/icons/filter.svg';
 
+  /// File path: assets/icons/filter_black.svg
+  String get filterBlack => 'assets/icons/filter_black.svg';
+
   /// File path: assets/icons/help.svg
   String get help => 'assets/icons/help.svg';
 
@@ -153,6 +156,7 @@ class $AssetsIconsGen {
         eye,
         favorite,
         filter,
+        filterBlack,
         help,
         history,
         home,
