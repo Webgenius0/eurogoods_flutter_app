@@ -460,22 +460,26 @@ class _SaveCardState extends State<SaveCard> {
 
               //----------------Save Card----------------
 
-              Container(
-                height: 44.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.c01779D,
-                  border: Border.all(width: 1, color: AppColors.c01779D),
-                  borderRadius:
-                      BorderRadius.circular(62.r), // You can adjust the radius
-                ),
-                child: Center(
-                  child: Text(
-                    "Save Card",
-                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                        color: AppColors.cFFFFFF,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w500),
+              GestureDetector(
+                onTap: () => NavigationService.navigateTo(Routes.bottomNavBar),
+                child: Container(
+                  height: 44.h,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: AppColors.c01779D,
+                    border: Border.all(width: 1, color: AppColors.c01779D),
+                    borderRadius: BorderRadius.circular(
+                        62.r), // You can adjust the radius
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Save Card",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              color: AppColors.cFFFFFF,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
               )

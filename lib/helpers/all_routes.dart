@@ -13,6 +13,7 @@ import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
 
 import 'package:eurogoods/features/onboarding/presentation/auth/create_new_password/create_new_password_screen.dart';
 import 'package:eurogoods/features/onboarding/presentation/auth/otp_verification/otp_verification_screen.dart';
+import 'package:eurogoods/features/profile/presentation/change_password_screen.dart';
 
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
@@ -210,6 +211,12 @@ final class RouteGenerator {
         return Platform.isAndroid
             ? _FadedTransitionRoute(widget: HelpCenter(), settings: settings)
             : CupertinoPageRoute(builder: (context) => HelpCenter());
+
+      case Routes.changePasswordScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: ChangePasswordScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => ChangePasswordScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;
