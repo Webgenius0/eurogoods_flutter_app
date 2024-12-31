@@ -69,6 +69,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.svg
   String get home => 'assets/icons/home.svg';
 
+  /// File path: assets/icons/imagebackward.svg
+  String get imagebackward => 'assets/icons/imagebackward.svg';
+
+  /// File path: assets/icons/imageforward.svg
+  String get imageforward => 'assets/icons/imageforward.svg';
+
   /// File path: assets/icons/location.svg
   String get location => 'assets/icons/location.svg';
 
@@ -123,6 +129,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search.svg
   String get search => 'assets/icons/search.svg';
 
+  /// File path: assets/icons/search_normal.svg
+  String get searchNormal => 'assets/icons/search_normal.svg';
+
   /// File path: assets/icons/user.svg
   String get user => 'assets/icons/user.svg';
 
@@ -147,6 +156,8 @@ class $AssetsIconsGen {
         help,
         history,
         home,
+        imagebackward,
+        imageforward,
         location,
         locationChange,
         logOut,
@@ -165,6 +176,7 @@ class $AssetsIconsGen {
         plusWithBorder,
         profile,
         search,
+        searchNormal,
         user
       ];
 }
