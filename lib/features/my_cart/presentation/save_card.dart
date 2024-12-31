@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:eurogoods/common_widgets/add_new_card.dart';
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
-import 'package:eurogoods/common_widgets/custom_button.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
@@ -10,20 +11,22 @@ import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
-class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({super.key});
+class SaveCard extends StatefulWidget {
+  const SaveCard({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _PaymentScreenState createState() => _PaymentScreenState();
+  _SaveCardState createState() => _SaveCardState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _SaveCardState extends State<SaveCard> {
   String cardHolderName = "";
   String cardNumber = "* * * *  * * * *  * * * *  XXXX";
   String expiryDate = "XX/XX";
   String cvv = "";
+  bool isToggled = false;
 
   final List<Map<String, String>> cardData = [
     {
@@ -57,77 +60,52 @@ class _PaymentScreenState extends State<PaymentScreen> {
         Future.delayed(const Duration(seconds: 1), () {
           // NavigationService.navigateTo(Routes.navigationScreen);
         });
-        return Center(
-          child: Container(
-            width: 333.w, // Adjust width for responsiveness
-            height: 356.h,
-            alignment: Alignment.center, // Adjust height for responsiveness
-            decoration: BoxDecoration(
-              color: AppColors.cFFFFFF,
-              borderRadius: BorderRadius.circular(27),
+        return Stack(
+          children: [
+            // Blurred background
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.black.withOpacity(0.2), // Optional dark overlay
+              ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SvgPicture.asset(Assets.icons.orderSuccess),
-                UIHelper.verticalSpace(4.h),
-                Text(
-                  "Order Successful!",
-                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                      decoration: TextDecoration.none,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.c000000,
-                      fontSize: 24.sp,
-                      height: 3.4.sp),
+            Center(
+              child: Container(
+                width: 342.w, // Adjust width for responsiveness
+                height: 486.h, // Adjust height for responsiveness
+                decoration: BoxDecoration(
+                  color: AppColors.cFFFFFF,
+                  borderRadius: BorderRadius.circular(27),
                 ),
-
-                Text(
-                  "you have sucessful made order",
-                  textAlign: TextAlign.center,
-                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                      decoration: TextDecoration.none,
-                      fontSize: 14.sp,
-                      color: AppColors.c000000),
-                ),
-                UIHelper.verticalSpace(20.h),
-                GestureDetector(
-                  onTap: () => NavigationService.goBack,
-                  child: Container(
-                    width: 126.w,
-                    height: 40.h,
-                    padding: EdgeInsets.all(5.sp),
-                    decoration: BoxDecoration(
-                        color: AppColors.cFFFFFF,
-
-                        // gradient: const LinearGradient(
-                        //   colors: [
-                        //     Color(0xFF39CDFD), // Gradient color 1
-                        //     Color(0xFF0680A6), // Gradient color 2
-                        //   ],
-                        //   begin: Alignment.topLeft, // Gradient start
-                        //   end: Alignment.bottomRight, // Gradient end
-                        // ),
-                        borderRadius: BorderRadius.circular(20.r),
-                        border: Border.all(width: 1, color: AppColors.c01779D)),
-                    child: Center(
-                      child: Text(
-                        'View Order',
-                        style: TextFontStyle.textStyle24c848585PoppinsW400
-                            .copyWith(
-                                decoration: TextDecoration.none,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.c000000),
-                      ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(Assets.icons.bank),
+                    Text(
+                      "Reset Password Successful!",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(decoration: TextDecoration.none),
                     ),
-                  ),
+                    UIHelper.verticalSpace(20.h),
+                    Text(
+                      "Your password has been restored\nPlease wait a moment, we are\npreparing for you...",
+                      textAlign: TextAlign.center,
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(decoration: TextDecoration.none),
+                    ),
+                    UIHelper.verticalSpace(20.h),
+                    TextButton(
+                        onPressed: () {
+                          NavigationService.goBack;
+                        },
+                        child: Text('View Order')),
+                    // const CircularProgressIndicator(),
+                    UIHelper.verticalSpace(40.h),
+                  ],
                 ),
-                // const CircularProgressIndicator(),
-                // UIHelper.verticalSpace(40.h),
-              ],
+              ),
             ),
-          ),
+          ],
         );
       },
     );
@@ -153,7 +131,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
         padding: EdgeInsets.symmetric(horizontal: 21.w),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //-----------Card Preview--------------
 
@@ -286,9 +265,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       color: AppColors.c01779D,
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w500),
-                  text: "Confirm Payment",
+                  text: "Add New Card",
                   onPressed: () {
-                    NavigationService.navigateTo(Routes.saveCard);
+                    NavigationService.navigateTo(Routes.addNewCardScreen);
                   }),
               UIHelper.verticalSpace(20.h),
 
@@ -452,21 +431,54 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   )),
                 ],
               ),
+              UIHelper.verticalSpace(13.h),
+              Row(
+                children: [
+                  Text(
+                    'Save Card Info',
+                    style: TextFontStyle.textStyle24c848585PoppinsW400
+                        .copyWith(fontSize: 14.sp, color: AppColors.c000000),
+                  ),
+                  Spacer(),
+                  FlutterSwitch(
+                    height: 22.0,
+                    width: 38.0,
+                    padding: 4.0,
+                    toggleSize: 15.0,
+                    borderRadius: 10.0,
+                    activeColor: AppColors.c01779D,
+                    value: isToggled,
+                    onToggle: (value) {
+                      setState(() {
+                        isToggled = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
               UIHelper.verticalSpace(32.h),
 
-              //----------------Confirm Payment----------------
+              //----------------Save Card----------------
+
               Container(
-                height: 55.h,
-                width: double.infinity,
-                child: CustomButton(
-                  text: "Confirm Payment",
-                  onPressed: () => showCustomAlert(context),
-                  style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
-                      color: AppColors.cFFFFFF,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w500),
+                height: 44.h,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.c01779D,
+                  border: Border.all(width: 1, color: AppColors.c01779D),
+                  borderRadius:
+                      BorderRadius.circular(62.r), // You can adjust the radius
                 ),
-              ),
+                child: Center(
+                  child: Text(
+                    "Save Card",
+                    style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
+                        color: AppColors.cFFFFFF,
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+              )
             ],
           ),
         ),

@@ -196,6 +196,14 @@ class $AssetsImagesGen {
   AssetGenImage get blueCans =>
       const AssetGenImage('assets/images/blue_cans.png');
 
+  /// File path: assets/images/card_img.png
+  AssetGenImage get cardImg =>
+      const AssetGenImage('assets/images/card_img.png');
+
+  /// File path: assets/images/card_img1.png
+  AssetGenImage get cardImg1 =>
+      const AssetGenImage('assets/images/card_img1.png');
+
   /// File path: assets/images/celsius_vibe.png
   AssetGenImage get celsiusVibe =>
       const AssetGenImage('assets/images/celsius_vibe.png');
@@ -241,6 +249,8 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         blueCans,
+        cardImg,
+        cardImg1,
         celsiusVibe,
         cocaKola,
         cocaKola1,
