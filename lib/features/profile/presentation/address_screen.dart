@@ -119,7 +119,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 border: Border.all(color: AppColors.c01779D)),
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 8.h, horizontal: 16.w),
+                                    vertical: 8.h, horizontal: 65.w),
                                 child: Text(
                                   "Change Address",
                                   style: TextFontStyle
@@ -130,6 +130,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 )),
                           ),
                         ),
+                        Spacer(),
                         UIHelper.horizontalSpace(8.w),
                         SvgPicture.asset(Assets.icons.optionCircle)
                       ],
@@ -215,7 +216,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 border: Border.all(color: AppColors.c01779D)),
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 8.h, horizontal: 16.w),
+                                    vertical: 8.h, horizontal: 65.w),
                                 child: Text(
                                   "Change Address",
                                   style: TextFontStyle
@@ -226,6 +227,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 )),
                           ),
                         ),
+                        Spacer(),
                         UIHelper.horizontalSpace(8.w),
                         SvgPicture.asset(Assets.icons.optionCircle)
                       ],
@@ -311,7 +313,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 border: Border.all(color: AppColors.c01779D)),
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 8.h, horizontal: 16.w),
+                                    vertical: 8.h, horizontal: 65.w),
                                 child: Text(
                                   "Change Address",
                                   style: TextFontStyle
@@ -322,6 +324,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 )),
                           ),
                         ),
+                        Spacer(),
                         UIHelper.horizontalSpace(8.w),
                         SvgPicture.asset(Assets.icons.optionCircle)
                       ],
