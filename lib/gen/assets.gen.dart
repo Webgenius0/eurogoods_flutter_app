@@ -144,6 +144,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/plus.svg
   String get plus => 'assets/icons/plus.svg';
 
+  /// File path: assets/icons/plus_plus.svg
+  String get plusPlus => 'assets/icons/plus_plus.svg';
+
   /// File path: assets/icons/plus_with_border.svg
   String get plusWithBorder => 'assets/icons/plus_with_border.svg';
 
@@ -208,6 +211,7 @@ class $AssetsIconsGen {
         phone,
         plashIcon,
         plus,
+        plusPlus,
         plusWithBorder,
         profile,
         search,

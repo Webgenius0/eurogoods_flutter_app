@@ -60,7 +60,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 Row(
                   children: [
                     SvgPicture.asset(
-                      Assets.icons.location,
+                      Assets.icons.locationOn,
                       color: AppColors.c17242B,
                       height: 16.h,
                       width: 16.w,

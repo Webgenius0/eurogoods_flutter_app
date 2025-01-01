@@ -77,7 +77,7 @@ final class Routes {
   //--->>
   static const String otpVerifyScreen = '/otp_verify_screen';
   static const String createNewPassScreen = '/create_new_pass_screen';
-  static const String AddNewAddressScreen = '/Add_new_address_screen';
+  static const String addNewAddressScreen = '/add_new_address_screen';
 
   //<<--
 
@@ -109,7 +109,7 @@ final class RouteGenerator {
                 widget: CreateNewPasswordScreen(), settings: settings)
             : CupertinoPageRoute(
                 builder: (context) => CreateNewPasswordScreen());
-      case Routes.AddNewAddressScreen:
+      case Routes.addNewAddressScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: AddNewAddressScreen(), settings: settings)

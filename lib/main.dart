@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 import 'package:auto_animated/auto_animated.dart';
-import 'package:eurogoods/features/profile/presentation/change_address_screen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/di.dart';
