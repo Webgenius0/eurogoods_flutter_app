@@ -27,6 +27,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bank.svg
   String get bank => 'assets/icons/bank.svg';
 
+  /// File path: assets/icons/calender.svg
+  String get calender => 'assets/icons/calender.svg';
+
   /// File path: assets/icons/cart.svg
   String get cart => 'assets/icons/cart.svg';
 
@@ -163,6 +166,7 @@ class $AssetsIconsGen {
         arrowBack,
         arrowRight,
         bank,
+        calender,
         cart,
         categories,
         changePassword,

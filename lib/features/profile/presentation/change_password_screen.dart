@@ -123,7 +123,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       ),
       bottomNavigationBar: GestureDetector(
         onTap: () {
-          NavigationService.navigateTo(Routes.welcomeScreen);
+          NavigationService.navigateTo(Routes.loginScreen);
         },
         child: Padding(
           padding: EdgeInsets.only(left: 21.w, right: 21.w, bottom: 21.h),
@@ -138,7 +138,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             ),
             child: Center(
               child: Text(
-                "Add Card",
+                "Change password",
                 style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
                     color: AppColors.cFFFFFF,
                     fontSize: 15.sp,

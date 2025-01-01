@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:flutter/material.dart';

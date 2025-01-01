@@ -9,15 +9,15 @@ import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   // variables
   TextEditingController nameOrEmailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -48,11 +48,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       UIHelper.verticalSpace(44.h),
 
-                      //------------email textfield-------------
+                      //------------email or username textfield-------------
                       CustomTextFormField(
                         hintText: 'Username or Email',
                         prefixIcon: Assets.icons.user,
-                        backgroundColor: AppColors.cFFFFFF,
+                        backgroundColor: AppColors.cEAFEFF.withOpacity(0.3),
                         borderColor: AppColors.c02344A,
                         iconColor: AppColors.c02344A,
                         hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
@@ -128,7 +128,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       UIHelper.verticalSpace(30.h),
 
-                      //------------signup-------------
+                      //------------signup text-------------
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

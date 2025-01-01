@@ -4,7 +4,6 @@ import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../gen/colors.gen.dart';
@@ -137,12 +136,10 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                 ),
                 UIHelper.verticalSpace(20.h),
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {},
                   child: Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 10.h
-                    ),
-                   // height: 55.h,
+                    padding: EdgeInsets.symmetric(vertical: 10.h),
+                    // height: 55.h,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
@@ -158,7 +155,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                     ),
                     child: Text(
                       "Add",
-                      style: TextFontStyle.textStyle14c3B3B3BPoppinsW500.copyWith(color: AppColors.cFFFFFF,fontSize: 15.sp),
+                      style: TextFontStyle.textStyle14c3B3B3BPoppinsW500
+                          .copyWith(color: AppColors.cFFFFFF, fontSize: 15.sp),
                     ),
                   ),
                 )

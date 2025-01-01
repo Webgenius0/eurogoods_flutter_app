@@ -50,7 +50,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: EdgeInsets.symmetric(
+        horizontal: 8.w,
+      ),
       height: 55.h,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -75,14 +77,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           UIHelper.horizontalSpace(3.15.w),
           Expanded(
             child: TextFormField(
-          
-              
               controller: widget.controller,
               keyboardType: widget.keyboardType,
               obscureText: _obscureText,
               validator: widget.validator,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(horizontal: widget.prefixIcon != null? 0: 5.w),
+                contentPadding: EdgeInsets.symmetric(
+                    horizontal: widget.prefixIcon != null ? 0 : 5.w),
                 hintText: widget.hintText,
                 hintStyle:
                     TextFontStyle.textStyle12c02344AMontserratW500.copyWith(

@@ -3,11 +3,10 @@ import 'package:eurogoods/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-
-import '../../../../../common_widgets/custom_button.dart';
-import '../../../../../constants/text_font_style.dart';
-import '../../../../../gen/colors.gen.dart';
-import '../../../../../helpers/all_routes.dart';
+import '../../../common_widgets/custom_button.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../helpers/all_routes.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   const OtpVerificationScreen({super.key});
@@ -41,7 +40,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 40.h, left: 22.w, right: 22.w),
+          padding: EdgeInsets.only(top: 45.h, left: 21.w, right: 21.w),
           child: Form(
             key: _formKey,
             child: Column(
@@ -49,13 +48,18 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "OTP code verification ",
-                  style: TextFontStyle.textStyle36c0E4F6MontserratW700,
+                  "OTP code \nverification ",
+                  style: TextFontStyle.textStyle36c0E4F6MontserratW700
+                      .copyWith(fontStyle: FontStyle.normal),
                 ),
                 UIHelper.verticalSpace(20.h),
                 Text(
-                  "* We have sent an OTP code to your email and ********ley@gmail.com. Enter the OTP code below to verify",
-                  style: TextFontStyle.textStyle12c02344APoppinsW400,
+                  "* We have sent an OTP code to your email \nand ********ley@gmail.com. Enter the OTP code below to verify",
+                  style: TextFontStyle.textStyle12c02344AMontserratW500
+                      .copyWith(
+                          fontStyle: FontStyle.normal,
+                          color: AppColors.c02344A,
+                          fontWeight: FontWeight.w400),
                 ),
                 UIHelper.verticalSpace(60.h),
                 Align(
@@ -82,11 +86,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                               )),
                         ): null, */
                     defaultPinTheme: PinTheme(
-                      height: 65.h,
-                      width: 62.w,
+                      height: 63.h,
+                      width: 75.w,
                       decoration: BoxDecoration(
                         //color: AppColors.cB5B5B5,
-                        //color: AppColors.cBA016E,
+
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
@@ -96,10 +100,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                       width: 62.w,
                       decoration: BoxDecoration(
                         //color: AppColors.cB5B5B5.withOpacity(0.9),
-                        //color: AppColors.cBA016E,
+
                         /* border:
                             Border.all(color: AppColors.cBA016E, width: 2.w), */
-                        borderRadius: BorderRadius.circular(12.r),
+                        borderRadius: BorderRadius.circular(10.r),
                       ),
                     ),
                   ),
@@ -107,7 +111,27 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 UIHelper.verticalSpace(20.h),
                 Text(
                   "Didn’t receive email?",
-                  style: TextFontStyle.textStyle14c3B3B3BPoppinsW500,
+                  style: TextFontStyle.textStyle14c3B3B3CInterW500,
+                ),
+                UIHelper.verticalSpace(10.h),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "You can resend code in ",
+                          style: TextFontStyle.textStyle14c3B3B3CInterW500
+                              .copyWith(color: AppColors.c3B3B3C)),
+                      TextSpan(
+                        text: '55',
+                        style:
+                            TextFontStyle.textStyle14c3B3B3CInterW500.copyWith(
+                          color: AppColors.c01779D,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                      TextSpan(text: ' s'),
+                    ],
+                  ),
                 ),
                 UIHelper.verticalSpace(30.h),
                 CustomButton(
@@ -120,6 +144,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   style: TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
                       color: AppColors.cFFFFFF,
                       fontSize: 20.sp,
+                      fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w600),
                 ),
               ],

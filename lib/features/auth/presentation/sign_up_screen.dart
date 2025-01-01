@@ -144,7 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           UIHelper.horizontalSpace(5.w),
                           GestureDetector(
                             onTap: () => NavigationService.navigateTo(
-                                Routes.welcomeScreen),
+                                Routes.loginScreen),
                             child: Text(
                               "Login",
                               style: TextFontStyle
