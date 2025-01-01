@@ -57,25 +57,244 @@ class _AddressScreenState extends State<AddressScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Home"),
+                    Text(
+                      "Home",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              color: AppColors.c000000,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500),
+                    ),
                     UIHelper.verticalSpace(8.h),
                     CustomHorizontalDivider(),
                     UIHelper.verticalSpace(8.h),
                     Row(
                       children: [
-                        Text("Jane Cooper "),
+                        Text("Jane Cooper ",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c17242B,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500)),
                         UIHelper.horizontalSpace(8.w),
-                        Text("(684) 555-0102")
+                        Text("(684) 555-0102",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500))
                       ],
                     ),
                     UIHelper.verticalSpace(7.h),
-                    Text('3517 W. Gray St. Utica, Pennsylvania 57867'),
+                    Text('3517 W. Gray St. Utica, Pennsylvania 57867',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                color: AppColors.c17242B,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400)),
                     UIHelper.verticalSpace(4.h),
                     Row(
                       children: [
-                        SvgPicture.asset(Assets.icons.location),
+                        SvgPicture.asset(Assets.icons.locationOn),
                         UIHelper.horizontalSpace(4.w),
-                        Text("Pinpoint already")
+                        Text("Pinpoint already",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400))
+                      ],
+                    ),
+                    UIHelper.verticalSpace(12.h),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            NavigationService.navigateTo(
+                                Routes.changeAddressScreen);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(color: AppColors.c01779D)),
+                            child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 8.h, horizontal: 16.w),
+                                child: Text(
+                                  "Change Address",
+                                  style: TextFontStyle
+                                      .textStyle24c848585PoppinsW400
+                                      .copyWith(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w500),
+                                )),
+                          ),
+                        ),
+                        UIHelper.horizontalSpace(8.w),
+                        SvgPicture.asset(Assets.icons.optionCircle)
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+            //-----------Apartment ---------------
+            UIHelper.verticalSpace(16.h),
+            Container(
+              width: 333.w,
+              height: 194.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                color: AppColors.cFFFFFF,
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(12.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Apartment",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              color: AppColors.c000000,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500),
+                    ),
+                    UIHelper.verticalSpace(8.h),
+                    CustomHorizontalDivider(),
+                    UIHelper.verticalSpace(8.h),
+                    Row(
+                      children: [
+                        Text("Jane Cooper ",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c17242B,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500)),
+                        UIHelper.horizontalSpace(8.w),
+                        Text("(684) 555-0102",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500))
+                      ],
+                    ),
+                    UIHelper.verticalSpace(7.h),
+                    Text('3517 W. Gray St. Utica, Pennsylvania 57867',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                color: AppColors.c17242B,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400)),
+                    UIHelper.verticalSpace(4.h),
+                    Row(
+                      children: [
+                        SvgPicture.asset(Assets.icons.locationOn),
+                        UIHelper.horizontalSpace(4.w),
+                        Text("Pinpoint already",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400))
+                      ],
+                    ),
+                    UIHelper.verticalSpace(12.h),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            NavigationService.navigateTo(
+                                Routes.changeAddressScreen);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(color: AppColors.c01779D)),
+                            child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 8.h, horizontal: 16.w),
+                                child: Text(
+                                  "Change Address",
+                                  style: TextFontStyle
+                                      .textStyle24c848585PoppinsW400
+                                      .copyWith(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w500),
+                                )),
+                          ),
+                        ),
+                        UIHelper.horizontalSpace(8.w),
+                        SvgPicture.asset(Assets.icons.optionCircle)
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+            //---------Office--------------
+            UIHelper.verticalSpace(16.h),
+            Container(
+              width: 333.w,
+              height: 194.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                color: AppColors.cFFFFFF,
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(12.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Office",
+                      style: TextFontStyle.textStyle24c848585PoppinsW400
+                          .copyWith(
+                              color: AppColors.c000000,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500),
+                    ),
+                    UIHelper.verticalSpace(8.h),
+                    CustomHorizontalDivider(),
+                    UIHelper.verticalSpace(8.h),
+                    Row(
+                      children: [
+                        Text("Jane Cooper ",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c17242B,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500)),
+                        UIHelper.horizontalSpace(8.w),
+                        Text("(684) 555-0102",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500))
+                      ],
+                    ),
+                    UIHelper.verticalSpace(7.h),
+                    Text('3517 W. Gray St. Utica, Pennsylvania 57867',
+                        style: TextFontStyle.textStyle24c848585PoppinsW400
+                            .copyWith(
+                                color: AppColors.c17242B,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400)),
+                    UIHelper.verticalSpace(4.h),
+                    Row(
+                      children: [
+                        SvgPicture.asset(Assets.icons.locationOn),
+                        UIHelper.horizontalSpace(4.w),
+                        Text("Pinpoint already",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c000000,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400))
                       ],
                     ),
                     UIHelper.verticalSpace(12.h),
