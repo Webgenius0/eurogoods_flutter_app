@@ -93,7 +93,14 @@ class _AddressScreenState extends State<AddressScreen> {
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     vertical: 8.h, horizontal: 16.w),
-                                child: Text("Change Address")),
+                                child: Text(
+                                  "Change Address",
+                                  style: TextFontStyle
+                                      .textStyle24c848585PoppinsW400
+                                      .copyWith(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w500),
+                                )),
                           ),
                         ),
                         UIHelper.horizontalSpace(8.w),
