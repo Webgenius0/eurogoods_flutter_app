@@ -15,6 +15,7 @@ class TextFontStyle {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
+  
 
   static final textStyle14c3B3B3BPoppinsW500 = GoogleFonts.inter(
     color: AppColors.c3B3B3B,
