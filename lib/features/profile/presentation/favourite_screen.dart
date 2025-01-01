@@ -41,12 +41,12 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
             Expanded(
               child: ListView.builder(
                 itemCount: 6,
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.only(bottom: 8.h),
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.symmetric(vertical: 4.0),
                     child: Container(
-                      height: 98.0, // Adjust as per your requirements
+                      height: 85.0.h, // Adjust as per your requirements
                       padding: EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),

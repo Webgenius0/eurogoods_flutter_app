@@ -98,10 +98,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 text: "Help Center"),
           ),
           UIHelper.verticalSpace(20.h),
-          CustomListtileWidget(
-              leftIconPath: Assets.icons.payment,
-              rightIconPath: Assets.icons.arrowRight,
-              text: "Payment"),
+          GestureDetector(
+            onTap: () => NavigationService.navigateTo(Routes.paymentScreen),
+            child: CustomListtileWidget(
+                leftIconPath: Assets.icons.payment,
+                rightIconPath: Assets.icons.arrowRight,
+                text: "Payment"),
+          ),
           UIHelper.verticalSpace(20.h),
           GestureDetector(
             onTap: () => NavigationService.navigateTo(Routes.favouriteScreen),

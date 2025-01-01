@@ -52,7 +52,10 @@ class _ChangeAddressScreenState extends State<ChangeAddressScreen> {
                 UIHelper.verticalSpace(26.h),
                 Row(
                   children: [
-                    SvgPicture.asset(Assets.icons.location),
+                    SvgPicture.asset(
+                      Assets.icons.locationOn,
+                      color: AppColors.c01779D,
+                    ),
                     UIHelper.horizontalSpace(9.h),
                     Text(
                       '3517 W. Gray St. Utica, Pennsylvania 57867',
@@ -77,6 +80,7 @@ class _ChangeAddressScreenState extends State<ChangeAddressScreen> {
                 ),
                 UIHelper.verticalSpace(8.h),
                 TextFormField(
+                  readOnly: true,
                   controller: addressNameController,
                   cursorColor: AppColors.cF5F5F5,
                   obscureText: _isObscured,
@@ -116,6 +120,7 @@ class _ChangeAddressScreenState extends State<ChangeAddressScreen> {
                     ),
                   ),
                 ),
+                UIHelper.verticalSpace(16.h),
                 Text(
                   'Address Details',
                   style: TextFontStyle.textStyle24c848585PoppinsW400.copyWith(
@@ -127,6 +132,7 @@ class _ChangeAddressScreenState extends State<ChangeAddressScreen> {
                 ),
                 UIHelper.verticalSpace(8.h),
                 TextFormField(
+                  readOnly: true,
                   controller: addressNameController,
                   cursorColor: AppColors.cF5F5F5,
                   obscureText: _isObscured,
@@ -172,9 +178,8 @@ class _ChangeAddressScreenState extends State<ChangeAddressScreen> {
         ),
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: () {
-          NavigationService.navigateTo(Routes.loginScreen);
-        },
+        onTap: () =>
+            NavigationService.navigateToReplacement(Routes.addressScreen),
         child: Padding(
           padding: EdgeInsets.only(left: 21.w, right: 21.w, bottom: 21.h),
           child: Container(
