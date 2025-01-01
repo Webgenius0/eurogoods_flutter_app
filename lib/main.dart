@@ -1,7 +1,5 @@
 // ignore_for_file: deprecated_member_use
 import 'package:auto_animated/auto_animated.dart';
-import 'package:eurogoods/features/profile/presentation/change_password_screen.dart';
-import 'package:eurogoods/features/profile/presentation/help_center.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:eurogoods/helpers/all_routes.dart';
 import 'package:eurogoods/helpers/di.dart';
@@ -15,10 +13,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
-
-import 'features/address/presentation/add_new_address_screen.dart';
-import 'features/onboarding/presentation/auth/create_new_password/create_new_password_screen.dart';
-import 'features/onboarding/presentation/auth/otp_verification/otp_verification_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -90,11 +84,7 @@ class UtillScreenMobile extends StatelessWidget {
                 },
                 navigatorKey: NavigationService.navigatorKey,
                 onGenerateRoute: RouteGenerator.generateRoute,
-
-                home: Loading())
-            
-            );
-
+                home: Loading()));
       },
     );
   }

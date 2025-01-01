@@ -19,8 +19,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   // variables
-  TextEditingController nameOrEmailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -45,44 +44,46 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         "Forgot \npassword?",
                         style: TextFontStyle.textStyle36c0E4F6MontserratW700,
                       ),
-                      UIHelper.verticalSpace(44.h),
+
+                      UIHelper.verticalSpace(10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "* We have sent an OTP code to your email \nand ********ley@gmail.com. Enter the OTP \ncode below to verify",
+                            style: TextFontStyle.textStyle24c848585PoppinsW400
+                                .copyWith(
+                                    color: AppColors.c02344A,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal),
+                          ),
+                        ],
+                      ),
+                      UIHelper.verticalSpace(36.h),
 
                       //------------email textfield-------------
                       CustomTextFormField(
-                        hintText: 'Username or Email',
+                        hintText: 'Enter your email address here',
                         prefixIcon: Assets.icons.email,
                         backgroundColor: AppColors.cFFFFFF,
                         borderColor: AppColors.c02344A,
                         iconColor: AppColors.c02344A,
                         hintTextColor: AppColors.c02344A.withOpacity(0.8.sp),
-                        controller: nameOrEmailController,
+                        controller: emailController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your name or email';
+                            return 'Please enter your email';
                           }
                           return null;
                         },
                       ),
-                      UIHelper.verticalSpace(16.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "* We will send you a message to set or \nreset your new password",
-                            style: TextFontStyle.textStyle24c848585PoppinsW400
-                                .copyWith(
-                              color: AppColors.c676767,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                      UIHelper.verticalSpace(50.h),
 
-                      //------------submit button-------------
+                      UIHelper.verticalSpace(30.h),
+
+                      //------------Continue button-------------
                       CustomButton(
-                        text: "Submit",
+                        text: "Continue",
                         onPressed: () {
                           NavigationService.navigateTo(Routes.otpVerifyScreen);
                         },
@@ -90,7 +91,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             .copyWith(
                                 color: AppColors.cFFFFFF,
                                 fontSize: 20.sp,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FontStyle.normal),
                       ),
                     ],
                   ),

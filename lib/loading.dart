@@ -1,4 +1,4 @@
-import 'package:eurogoods/welcome_screen.dart';
+import 'package:eurogoods/login_screen.dart';
 import 'package:eurogoods/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'helpers/helper_methods.dart';
@@ -34,7 +34,7 @@ class _LoadingState extends State<Loading> {
     if (_isLoading) {
       return const SplashScreen();
     } else {
-      return const WelcomeScreen();
+      return const LoginScreen();
     }
   }
 }

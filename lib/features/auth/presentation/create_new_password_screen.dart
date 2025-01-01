@@ -3,13 +3,12 @@ import 'package:eurogoods/helpers/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../../../../common_widgets/custom_button.dart';
-import '../../../../../common_widgets/custom_textformfield.dart';
-import '../../../../../constants/text_font_style.dart';
-import '../../../../../gen/assets.gen.dart';
-import '../../../../../gen/colors.gen.dart';
-import '../../../../../helpers/ui_helpers.dart';
+import '../../../common_widgets/custom_button.dart';
+import '../../../common_widgets/custom_textformfield.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/assets.gen.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../helpers/ui_helpers.dart';
 
 class CreateNewPasswordScreen extends StatefulWidget {
   const CreateNewPasswordScreen({super.key});
@@ -37,7 +36,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 40.h, left: 22.w, right: 22.w),
+          padding: EdgeInsets.only(top: 45.h, left: 21.w, right: 21.w),
           child: Form(
             key: _formKey,
             child: Column(
@@ -45,13 +44,17 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Create new password ",
+                  "Create new \npassword ",
                   style: TextFontStyle.textStyle36c0E4F6MontserratW700,
                 ),
-                UIHelper.verticalSpace(60.h),
+                UIHelper.verticalSpace(10.h),
                 Text(
                   "Create your new password. if you forget it,then you have to do forgot password.",
-                  style: TextFontStyle.textStyle12c02344APoppinsW400,
+                  style: TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      color: AppColors.c02344A),
                 ),
                 UIHelper.verticalSpace(36.h),
                 CustomTextFormField(
@@ -103,9 +106,8 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                 UIHelper.verticalSpace(30.h),
                 CustomButton(
                   text: "Continue",
-                  onPressed: () {
-                    NavigationService.navigateTo(Routes.bottomNavBar);
-                  },
+                  onPressed: () =>
+                      NavigationService.navigateTo(Routes.bottomNavBar),
                   style: TextFontStyle.textStyle36c0E4F6MontserratW700.copyWith(
                       color: AppColors.cFFFFFF,
                       fontSize: 20.sp,

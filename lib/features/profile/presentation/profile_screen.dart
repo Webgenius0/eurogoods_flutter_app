@@ -1,5 +1,6 @@
 import 'package:eurogoods/common_widgets/custom_appbar.dart';
 import 'package:eurogoods/common_widgets/custom_listtile_widget.dart';
+import 'package:eurogoods/common_widgets/custom_logout_widget.dart';
 import 'package:eurogoods/constants/text_font_style.dart';
 import 'package:eurogoods/gen/assets.gen.dart';
 import 'package:eurogoods/gen/colors.gen.dart';
@@ -117,7 +118,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             rightIconPath: Assets.icons.arrowRight,
             text: "Log Out",
             onTap: () {
-              NavigationService.navigateToReplacement(Routes.welcomeScreen);
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled:
+                    true, // Ensures the bottom sheet adjusts to its content height
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(30.r)),
+                ),
+                builder: (BuildContext context) {
+                  return CustomLogoutWidget();
+                },
+              );
             },
           ),
         ],

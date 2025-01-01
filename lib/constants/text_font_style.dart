@@ -16,11 +16,16 @@ class TextFontStyle {
     fontWeight: FontWeight.w400,
   );
 
-
   static final textStyle14c3B3B3BPoppinsW500 = GoogleFonts.inter(
     color: AppColors.c3B3B3B,
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
+  );
+  static final textStyle14c3B3B3CInterW500 = GoogleFonts.inter(
+    color: AppColors.c3B3B3B,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
   );
 
   static var textStyle12c02344APoppinsW400 = GoogleFonts.inter(
@@ -32,22 +37,16 @@ class TextFontStyle {
   static var textStyle12c02344AMontserratW500 = GoogleFonts.montserrat(
       color: AppColors.c02344A, fontSize: 12.sp, fontWeight: FontWeight.w500);
 
-    static final text18c17242BStylePopine500 = GoogleFonts.poppins(
+  static final text18c17242BStylePopine500 = GoogleFonts.poppins(
       color: AppColors.c17242B, fontSize: 18.sp, fontWeight: FontWeight.w500);
 
-    static final text16cE00000StylePopine400 = GoogleFonts.poppins(
+  static final text16cE00000StylePopine400 = GoogleFonts.poppins(
       color: AppColors.cE00000, fontSize: 16.sp, fontWeight: FontWeight.w400);
 
-
-    static final text14c000000StylePopine400 = GoogleFonts.poppins(
+  static final text14c000000StylePopine400 = GoogleFonts.poppins(
       color: AppColors.c000000, fontSize: 14.sp, fontWeight: FontWeight.w500);
 
-
-
-
 //--------------------------------------------------------------------------------------------
-
-
 
 //   static final textStyle14c333333LatoW400 = GoogleFonts.lato(
 //       color: AppColors.c333333, fontSize: 14.sp, fontWeight: FontWeight.w400);

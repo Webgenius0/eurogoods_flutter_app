@@ -1,7 +1,5 @@
 // ignore_for_file: unused_element
-
 import 'dart:io';
-
 import 'package:eurogoods/features/history/presentation/order_details.dart';
 import 'package:eurogoods/features/home/presentation/all_prodcut_screen.dart';
 import 'package:eurogoods/features/home/presentation/home_screen.dart';
@@ -10,23 +8,19 @@ import 'package:eurogoods/features/my_cart/presentation/add_new_card.dart';
 import 'package:eurogoods/features/my_cart/presentation/checkout_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
-
-import 'package:eurogoods/features/onboarding/presentation/auth/create_new_password/create_new_password_screen.dart';
-import 'package:eurogoods/features/onboarding/presentation/auth/otp_verification/otp_verification_screen.dart';
+import 'package:eurogoods/features/auth/presentation/create_new_password_screen.dart';
+import 'package:eurogoods/features/auth/presentation/otp_verification_screen.dart';
 import 'package:eurogoods/features/profile/presentation/change_password_screen.dart';
-
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
-
 import 'package:eurogoods/features/profile/presentation/help_center.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_content_screen.dart';
 import 'package:eurogoods/features/search%20and%20sort/presentation/search_screen.dart';
 import 'package:eurogoods/navigation_screen.dart';
-import 'package:eurogoods/features/onboarding/presentation/auth/forgot_password/forgot_password.dart';
-import 'package:eurogoods/features/onboarding/presentation/auth/sign_up/sign_up_screen.dart';
-import 'package:eurogoods/welcome_screen.dart';
+import 'package:eurogoods/features/auth/presentation/forgot_password.dart';
+import 'package:eurogoods/features/auth/presentation/sign_up_screen.dart';
+import 'package:eurogoods/login_screen.dart';
 import 'package:flutter/cupertino.dart';
-
 import '../features/address/presentation/add_new_address_screen.dart';
 
 final class Routes {
@@ -34,7 +28,7 @@ final class Routes {
   Routes._internal();
   static Routes get instance => _routes;
 
-  static const String loginSwapScreen = '/loginSwapScreen';
+  //static const String loginSwapScreen = '/loginSwapScreen';
   static const String profileScreen = '/profileScreen';
   static const String notificationScreen = '/notoficationScreen';
   static const String settingScreen = '/settingScreen';
@@ -65,7 +59,7 @@ final class Routes {
   static const String forgotPassword = '/forgotPassword';
   static const String bottomNavBar = '/bottomNavBar';
   static const String homeScreen = '/homeScreen';
-  static const String welcomeScreen = '/welcomeScreen';
+  static const String loginScreen = '/loginScreen';
   static const String checkoutScreen = '/checkoutScreen';
   static const String allProdcutScreen = '/allProdcutScreen';
   static const String paymentScreen = '/paymentScreen';
@@ -136,10 +130,10 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(widget: HomeScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => HomeScreen());
 
-      case Routes.welcomeScreen:
+      case Routes.loginScreen:
         return Platform.isAndroid
-            ? _FadedTransitionRoute(widget: WelcomeScreen(), settings: settings)
-            : CupertinoPageRoute(builder: (context) => WelcomeScreen());
+            ? _FadedTransitionRoute(widget: LoginScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => LoginScreen());
 
       case Routes.checkoutScreen:
         return Platform.isAndroid
