@@ -10,6 +10,7 @@ import 'package:eurogoods/features/my_cart/presentation/payment_screen.dart';
 import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
 import 'package:eurogoods/features/auth/presentation/create_new_password_screen.dart';
 import 'package:eurogoods/features/auth/presentation/otp_verification_screen.dart';
+import 'package:eurogoods/features/profile/presentation/address_screen.dart';
 import 'package:eurogoods/features/profile/presentation/change_password_screen.dart';
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
@@ -76,10 +77,14 @@ final class Routes {
   static const String otpVerifyScreen = '/otp_verify_screen';
   static const String createNewPassScreen = '/create_new_pass_screen';
   static const String AddNewAddressScreen = '/Add_new_address_screen';
+
   //<<--
 
   static const String favouriteScreen = '/favouriteScreen';
   static const String helpCenter = '/helpCenter';
+
+  static const String addressScreen = '/addressScreen';
+  static const String changeAddressScreen = '/changeAddressScreen';
 }
 
 final class RouteGenerator {
@@ -211,6 +216,17 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(
                 widget: ChangePasswordScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => ChangePasswordScreen());
+
+      case Routes.addressScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(widget: AddressScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => AddressScreen());
+
+      // case Routes.changeAddressScreen:
+      //   return Platform.isAndroid
+      //       ? _FadedTransitionRoute(
+      //           widget: ChangeAddressScreen(), settings: settings)
+      //       : CupertinoPageRoute(builder: (context) => ChangeAddressScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;

@@ -69,8 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           UIHelper.verticalSpace(20.h),
           GestureDetector(
-            onTap: () =>
-                NavigationService.navigateTo(Routes.AddNewAddressScreen),
+            onTap: () => NavigationService.navigateTo(Routes.addressScreen),
             child: CustomListtileWidget(
                 leftIconPath: Assets.icons.locationOn,
                 rightIconPath: Assets.icons.arrowRight,
