@@ -123,6 +123,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
+  /// File path: assets/icons/optionCircle.svg
+  String get optionCircle => 'assets/icons/optionCircle.svg';
+
   /// File path: assets/icons/order_success.svg
   String get orderSuccess => 'assets/icons/order_success.svg';
 
@@ -198,6 +201,7 @@ class $AssetsIconsGen {
         minusWithBorder,
         moreVertical,
         notification,
+        optionCircle,
         orderSuccess,
         password,
         payment,
