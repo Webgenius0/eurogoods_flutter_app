@@ -68,7 +68,9 @@ class _AddressScreenState extends State<AddressScreen> {
                         Text("(684) 555-0102")
                       ],
                     ),
+                    UIHelper.verticalSpace(7.h),
                     Text('3517 W. Gray St. Utica, Pennsylvania 57867'),
+                    UIHelper.verticalSpace(4.h),
                     Row(
                       children: [
                         SvgPicture.asset(Assets.icons.location),
@@ -81,7 +83,8 @@ class _AddressScreenState extends State<AddressScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            // NavigationService.navigateTo(Routes.)
+                            NavigationService.navigateTo(
+                                Routes.changeAddressScreen);
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -92,7 +95,9 @@ class _AddressScreenState extends State<AddressScreen> {
                                     vertical: 8.h, horizontal: 16.w),
                                 child: Text("Change Address")),
                           ),
-                        )
+                        ),
+                        UIHelper.horizontalSpace(8.w),
+                        SvgPicture.asset(Assets.icons.optionCircle)
                       ],
                     )
                   ],

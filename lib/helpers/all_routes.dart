@@ -11,6 +11,7 @@ import 'package:eurogoods/features/my_cart/presentation/save_card.dart';
 import 'package:eurogoods/features/auth/presentation/create_new_password_screen.dart';
 import 'package:eurogoods/features/auth/presentation/otp_verification_screen.dart';
 import 'package:eurogoods/features/profile/presentation/address_screen.dart';
+import 'package:eurogoods/features/profile/presentation/change_address_screen.dart';
 import 'package:eurogoods/features/profile/presentation/change_password_screen.dart';
 import 'package:eurogoods/features/profile/presentation/edit_profile_screen.dart';
 import 'package:eurogoods/features/profile/presentation/favourite_screen.dart';
@@ -222,11 +223,11 @@ final class RouteGenerator {
             ? _FadedTransitionRoute(widget: AddressScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => AddressScreen());
 
-      // case Routes.changeAddressScreen:
-      //   return Platform.isAndroid
-      //       ? _FadedTransitionRoute(
-      //           widget: ChangeAddressScreen(), settings: settings)
-      //       : CupertinoPageRoute(builder: (context) => ChangeAddressScreen());
+      case Routes.changeAddressScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: ChangeAddressScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => ChangeAddressScreen());
 
       // case Routes.defination:
       // final args = settings.arguments as Map;
