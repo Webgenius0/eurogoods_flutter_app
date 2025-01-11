@@ -53,97 +53,82 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(201.h),
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(23.r),
-              bottomRight: Radius.circular(23.r),
-            ),
-            child: AppBar(
-                automaticallyImplyLeading: false,
-                backgroundColor: AppColors.allPrimaryColor,
-                flexibleSpace: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 56.h, horizontal: 21.w),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        height: 40.h,
-                        width: 333.w,
-                        decoration: BoxDecoration(
-                          color: AppColors.cFFFFFF,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: InkWell(
-                                onTap: () {
-                                  NavigationService.navigateTo(
-                                      Routes.searchScreen);
-                                },
-                                child: SvgPicture.asset(
-                                  Assets.icons.search,
-                                  // height: 16.h,
-                                  // width: 16.h,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: TextField(
-                                // controller: _searchController,
-                                // onChanged: _updateSearchQuery,
-                                decoration: InputDecoration(
-                                  hintText: 'Search your product...',
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    // NavigationService.navigateTo(
-                                    //     Routes.favouriteScreen);
-                                  },
-                                  child: SvgPicture.asset(Assets.icons.filter)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      UIHelper.verticalSpace(16.h),
-                      Text(
-                        "Current Location",
-                        style: TextFontStyle.textStyle24c848585PoppinsW400
-                            .copyWith(
-                                fontSize: 14.sp, color: AppColors.cFFFFFF),
-                      ),
-                      UIHelper.verticalSpace(4.h),
-
-                      ///<<<<<<<<<-----------Location-------------------->>>>>>>>>>
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("California USA",
-                              style: TextFontStyle.textStyle24c848585PoppinsW400
-                                  .copyWith(
-                                      color: AppColors.cFFFFFF,
-                                      fontSize: 20.sp)),
-                          UIHelper.horizontalSpace(12.w),
-                          SvgPicture.asset(
-                            Assets.icons.location,
-                            width: 16.sp,
-                            height: 16.sp,
-                          )
-                        ],
-                      )
-                    ],
+          preferredSize: Size.fromHeight(140.h),
+          child: Container(
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(23.r),
+                bottomRight: Radius.circular(23.r),
+              ),
+              child: AppBar(
+                  title: Center(
+                    child: Image.asset(
+                      Assets.images.splash.path,
+                      height: 40.h,
+                      width: 95.w,
+                    ),
                   ),
-                )),
+                  automaticallyImplyLeading: false,
+                  backgroundColor: Colors.transparent,
+                  flexibleSpace: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 21.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        UIHelper.verticalSpace(20.h),
+                        Container(
+                          height: 40.h,
+                          width: 333.w,
+                          decoration: BoxDecoration(
+                            color: AppColors.cFFFFFF,
+                            border:
+                                Border.all(width: 1, color: AppColors.cD1D5DB),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: InkWell(
+                                  onTap: () {
+                                    NavigationService.navigateTo(
+                                        Routes.searchScreen);
+                                  },
+                                  child: SvgPicture.asset(
+                                    Assets.icons.search,
+                                    // height: 16.h,
+                                    // width: 16.h,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: TextField(
+                                  // controller: _searchController,
+                                  // onChanged: _updateSearchQuery,
+                                  decoration: InputDecoration(
+                                    hintText: 'Search your product...',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      // NavigationService.navigateTo(
+                                      //     Routes.favouriteScreen);
+                                    },
+                                    child:
+                                        SvgPicture.asset(Assets.icons.filter)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
           )),
       backgroundColor: AppColors.cF5F5F5,
       body: Padding(
@@ -151,7 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              UIHelper.verticalSpace(32.h),
+              UIHelper.verticalSpace(40.h),
+
               //----------------------card---------------------
               SizedBox(
                 height: 250.h,
@@ -250,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    childAspectRatio: 0.62,
+                    childAspectRatio: 0.70,
                   ),
                   itemCount: min(beverageList.length, 4),
                   itemBuilder: (context, idx) {

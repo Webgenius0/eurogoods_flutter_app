@@ -1,5 +1,4 @@
 import 'package:eurogoods/gen/assets.gen.dart';
-import 'package:eurogoods/gen/colors.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,13 +32,27 @@ class _SplashScreenState extends State<SplashScreen> {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.allPrimaryColor,
-        body: Center(
-          child: Image.asset(
-            Assets.images.splash.path,
-            height: 98.h,
-            width: 210.7.w,
-          ),
+        // backgroundColor: AppColors.allPrimaryColor,
+        body: Stack(
+          children: [
+            // Background image
+            Positioned.fill(
+              child: Image.asset(
+                Assets.images.onsplash
+                    .path, // Replace with your background image asset
+                fit: BoxFit.cover,
+              ),
+            ),
+
+            // Foreground content
+            Center(
+              child: Image.asset(
+                Assets.images.splash.path,
+                height: 98.h,
+                width: 210.7.w,
+              ),
+            )
+          ],
         ),
       ),
     );

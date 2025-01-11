@@ -269,6 +269,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/map.png
   AssetGenImage get map => const AssetGenImage('assets/images/map.png');
 
+  /// File path: assets/images/onsplash.png
+  AssetGenImage get onsplash =>
+      const AssetGenImage('assets/images/onsplash.png');
+
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
@@ -300,6 +304,7 @@ class $AssetsImagesGen {
         lemon,
         locationImage,
         map,
+        onsplash,
         profile,
         profileImage,
         splash,

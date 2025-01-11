@@ -1,5 +1,5 @@
+import 'package:eurogoods/SplashScreen.dart';
 import 'package:eurogoods/login_screen.dart';
-import 'package:eurogoods/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'helpers/helper_methods.dart';
 

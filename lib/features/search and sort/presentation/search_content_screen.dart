@@ -168,7 +168,7 @@ class _SearchContentScreenState extends State<SearchContentScreen> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
-                  childAspectRatio: 0.62,
+                  childAspectRatio: 0.70,
                 ),
                 itemCount: beverageList.length,
                 itemBuilder: (context, idx) {
