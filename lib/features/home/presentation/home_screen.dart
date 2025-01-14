@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               //----------------------card---------------------
               SizedBox(
-                height: 250.h,
+                height: 230.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: beverageList.length,
@@ -187,6 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w500)),
               ),
               UIHelper.verticalSpace(16.h),
+
               // -------------------Categories --------------------------
               Wrap(
                 spacing: 7.0, // Horizontal spacing
